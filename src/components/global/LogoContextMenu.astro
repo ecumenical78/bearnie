@@ -156,7 +156,7 @@ const { class: className = "" } = Astro.props;
       // Copy Symbol SVG
       copySymbolBtn?.addEventListener("click", async () => {
         try {
-          const response = await fetch("/images/logos/symbol.svg");
+          const response = await fetch("/favicon.svg");
           const svgText = await response.text();
           await navigator.clipboard.writeText(svgText);
           showFeedback(copySymbolBtn as HTMLElement, "Copied!");
@@ -197,7 +197,7 @@ const { class: className = "" } = Astro.props;
 
           // Fetch all assets
           const [symbolRes, wordmarkRes] = await Promise.all([
-            fetch("/images/logos/symbol.svg"),
+            fetch("/favicon.svg"),
             fetch("/images/logos/wordmark.svg"),
           ]);
 

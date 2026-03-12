@@ -1,0 +1,27 @@
+{
+  "name": "popover",
+  "description": "Displays floating content when triggered",
+  "category": "disclosure",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "focus-trap"
+  ],
+  "files": [
+    {
+      "name": "Popover.astro",
+      "path": "popover/Popover.astro",
+      "content": "---\nimport { cn } from '@/utils/cn';\nimport type { HTMLAttributes } from 'astro/types';\n\nexport interface Props extends HTMLAttributes<'div'> {}\n\nconst { class: className, ...props } = Astro.props;\n---\n\n<div class={cn('relative inline-block', className)} data-popover {...props}>\n  <slot />\n</div>\n\n<script>\n  import { generateId } from '@/utils/focus-trap';\n\n  function initPopovers() {\n    document.querySelectorAll('[data-popover]').forEach((popover) => {\n      if (popover.hasAttribute('data-initialized')) return;\n      popover.setAttribute('data-initialized', 'true');\n\n      const trigger = popover.querySelector('[data-popover-trigger]') as HTMLElement;\n      const content = popover.querySelector('[data-popover-content]') as HTMLElement;\n\n      if (!trigger || !content) return;\n\n      // Generate ID for content if not present\n      if (!content.id) {\n        content.id = generateId('popover');\n      }\n\n      // Set ARIA attributes on trigger\n      trigger.setAttribute('aria-haspopup', 'dialog');\n      trigger.setAttribute('aria-controls', content.id);\n      trigger.setAttribute('aria-expanded', 'false');\n\n      const openPopover = () => {\n        content.hidden = false;\n        trigger.setAttribute('aria-expanded', 'true');\n        // Focus first focusable element in popover\n        const firstFocusable = content.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex=\"-1\"])') as HTMLElement;\n        firstFocusable?.focus();\n      };\n\n      const closePopover = () => {\n        content.hidden = true;\n        trigger.setAttribute('aria-expanded', 'false');\n        trigger.focus();\n      };\n\n      const togglePopover = () => {\n        if (content.hidden) {\n          openPopover();\n        } else {\n          closePopover();\n        }\n      };\n\n      trigger.addEventListener('click', togglePopover);\n\n      // Close on click outside\n      document.addEventListener('click', (e) => {\n        if (!popover.contains(e.target as Node) && !content.hidden) {\n          closePopover();\n        }\n      });\n\n      // Close on Escape\n      document.addEventListener('keydown', (e) => {\n        if (e.key === 'Escape' && !content.hidden) {\n          closePopover();\n        }\n      });\n    });\n  }\n\n  initPopovers();\n  document.addEventListener('astro:page-load', initPopovers);\n</script>\n"
+    },
+    {
+      "name": "PopoverContent.astro",
+      "path": "popover/PopoverContent.astro",
+      "content": "---\nimport { cn } from '@/utils/cn';\nimport type { HTMLAttributes } from 'astro/types';\n\nexport interface Props extends HTMLAttributes<'div'> {\n  align?: 'start' | 'center' | 'end';\n  side?: 'top' | 'right' | 'bottom' | 'left';\n  id?: string;\n}\n\nconst {\n  align = 'center',\n  side = 'bottom',\n  class: className,\n  id,\n  ...props\n} = Astro.props;\n\nconst sideStyles = {\n  top: 'bottom-full mb-2',\n  right: 'left-full ml-2',\n  bottom: 'top-full mt-2',\n  left: 'right-full mr-2',\n};\n\nconst alignStyles = {\n  start: 'left-0',\n  center: 'left-1/2 -translate-x-1/2',\n  end: 'right-0',\n};\n\nconst classes = cn(\n  'absolute z-50 w-72 rounded-lg border bg-popover p-4 text-popover-foreground shadow-md outline-none',\n  sideStyles[side],\n  side === 'top' || side === 'bottom' ? alignStyles[align] : '',\n  className\n);\n---\n\n<div\n  class={classes}\n  data-popover-content\n  role=\"dialog\"\n  aria-modal=\"false\"\n  id={id}\n  hidden\n  {...props}\n>\n  <slot />\n</div>\n"
+    },
+    {
+      "name": "PopoverTrigger.astro",
+      "path": "popover/PopoverTrigger.astro",
+      "content": "---\nimport { cn } from '@/utils/cn';\nimport type { HTMLAttributes } from 'astro/types';\n\nexport interface Props extends HTMLAttributes<'span'> {}\n\nconst { class: className, ...props } = Astro.props;\n---\n\n<span\n  class={cn('inline-block cursor-pointer', className)}\n  data-popover-trigger\n  role=\"button\"\n  tabindex=\"0\"\n  aria-expanded=\"false\"\n  {...props}\n>\n  <slot />\n</span>\n\n<script>\n  function initPopoverTriggers() {\n    document.querySelectorAll('[data-popover-trigger]').forEach((trigger) => {\n      if (trigger.hasAttribute('data-trigger-initialized')) return;\n      trigger.setAttribute('data-trigger-initialized', 'true');\n\n      trigger.addEventListener('keydown', (e) => {\n        const event = e as KeyboardEvent;\n        if (event.key === 'Enter' || event.key === ' ') {\n          event.preventDefault();\n          trigger.dispatchEvent(new MouseEvent('click', { bubbles: true }));\n        }\n      });\n    });\n  }\n\n  initPopoverTriggers();\n  document.addEventListener('astro:page-load', initPopoverTriggers);\n</script>\n"
+    }
+  ]
+}

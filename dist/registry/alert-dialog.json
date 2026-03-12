@@ -1,0 +1,62 @@
+{
+  "name": "alert-dialog",
+  "description": "A modal dialog for important confirmations",
+  "category": "disclosure",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "focus-trap"
+  ],
+  "files": [
+    {
+      "name": "AlertDialog.astro",
+      "path": "alert-dialog/AlertDialog.astro",
+      "content": "---\nimport { cn } from '@/utils/cn';\nimport type { HTMLAttributes } from 'astro/types';\n\nexport interface Props extends HTMLAttributes<'div'> {}\n\nconst { class: className, ...props } = Astro.props;\n---\n\n<div data-alert-dialog class={className} {...props}>\n  <slot />\n</div>\n\n<script>\n  import { trapFocus, generateId } from '@/utils/focus-trap';\n\n  function initAlertDialogs() {\n    document.querySelectorAll('[data-alert-dialog]').forEach((dialog) => {\n      if (dialog.hasAttribute('data-initialized')) return;\n      dialog.setAttribute('data-initialized', 'true');\n\n      const trigger = dialog.querySelector('[data-alert-dialog-trigger]') as HTMLElement;\n      const overlay = dialog.querySelector('[data-alert-dialog-overlay]') as HTMLElement;\n      const content = dialog.querySelector('[data-alert-dialog-content]') as HTMLElement;\n      const cancelButtons = dialog.querySelectorAll('[data-alert-dialog-cancel]');\n      const actionButtons = dialog.querySelectorAll('[data-alert-dialog-action]');\n      const title = dialog.querySelector('[data-alert-dialog-title]') as HTMLElement;\n      const description = dialog.querySelector('[data-alert-dialog-description]') as HTMLElement;\n\n      if (!trigger) return;\n\n      // Generate IDs for ARIA relationships\n      if (title && !title.id) {\n        title.id = generateId('alert-dialog-title');\n      }\n      if (description && !description.id) {\n        description.id = generateId('alert-dialog-desc');\n      }\n\n      // Set ARIA attributes on content\n      if (content) {\n        if (title?.id) content.setAttribute('aria-labelledby', title.id);\n        if (description?.id) content.setAttribute('aria-describedby', description.id);\n      }\n\n      let cleanupFocusTrap: (() => void) | null = null;\n\n      // Open dialog\n      trigger.addEventListener('click', () => {\n        if (overlay) overlay.hidden = false;\n        if (content) {\n          content.hidden = false;\n          // Set up focus trap\n          cleanupFocusTrap = trapFocus(content);\n        }\n      });\n\n      // Close dialog\n      const closeDialog = () => {\n        if (overlay) overlay.hidden = true;\n        if (content) content.hidden = true;\n        // Clean up focus trap\n        cleanupFocusTrap?.();\n        cleanupFocusTrap = null;\n        // Return focus to trigger\n        trigger?.focus();\n      };\n\n      // Cancel buttons close the dialog\n      cancelButtons.forEach((btn) => {\n        btn.addEventListener('click', closeDialog);\n      });\n\n      // Action buttons also close the dialog\n      actionButtons.forEach((btn) => {\n        btn.addEventListener('click', closeDialog);\n      });\n\n      // Note: No close on overlay click for alert dialogs (intentional)\n\n      // Close on Escape\n      const handleEscape = (e: KeyboardEvent) => {\n        if (e.key === 'Escape' && overlay && !overlay.hidden) {\n          closeDialog();\n        }\n      };\n\n      document.addEventListener('keydown', handleEscape);\n    });\n  }\n\n  initAlertDialogs();\n  document.addEventListener('astro:page-load', initAlertDialogs);\n</script>\n"
+    },
+    {
+      "name": "AlertDialogAction.astro",
+      "path": "alert-dialog/AlertDialogAction.astro",
+      "content": "---\nimport { cn } from '@/utils/cn';\nimport type { HTMLAttributes } from 'astro/types';\n\nexport interface Props extends HTMLAttributes<'button'> {}\n\nconst { class: className, ...props } = Astro.props;\n\nconst classes = cn(\n  'inline-flex h-10 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors',\n  'hover:bg-primary/90',\n  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',\n  'disabled:pointer-events-none disabled:opacity-50',\n  className\n);\n---\n\n<button\n  type=\"button\"\n  class={classes}\n  data-alert-dialog-action\n  {...props}\n>\n  <slot />\n</button>\n"
+    },
+    {
+      "name": "AlertDialogCancel.astro",
+      "path": "alert-dialog/AlertDialogCancel.astro",
+      "content": "---\nimport { cn } from '@/utils/cn';\nimport type { HTMLAttributes } from 'astro/types';\n\nexport interface Props extends HTMLAttributes<'button'> {}\n\nconst { class: className, ...props } = Astro.props;\n\nconst classes = cn(\n  'inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium ring-offset-background transition-colors',\n  'hover:bg-accent hover:text-accent-foreground',\n  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',\n  'disabled:pointer-events-none disabled:opacity-50',\n  className\n);\n---\n\n<button\n  type=\"button\"\n  class={classes}\n  data-alert-dialog-cancel\n  {...props}\n>\n  <slot />\n</button>\n"
+    },
+    {
+      "name": "AlertDialogContent.astro",
+      "path": "alert-dialog/AlertDialogContent.astro",
+      "content": "---\nimport { cn } from '@/utils/cn';\nimport type { HTMLAttributes } from 'astro/types';\n\nexport interface Props extends HTMLAttributes<'div'> {}\n\nconst { class: className, ...props } = Astro.props;\n\nconst classes = cn(\n  'fixed left-1/2 top-1/2 z-50 grid w-full max-w-lg -translate-x-1/2 -translate-y-1/2 gap-4 border bg-background p-6 shadow-lg sm:rounded-lg',\n  className\n);\n---\n\n<div\n  class={classes}\n  data-alert-dialog-content\n  role=\"alertdialog\"\n  aria-modal=\"true\"\n  hidden\n  {...props}\n>\n  <slot />\n</div>\n"
+    },
+    {
+      "name": "AlertDialogDescription.astro",
+      "path": "alert-dialog/AlertDialogDescription.astro",
+      "content": "---\nimport { cn } from '@/utils/cn';\nimport type { HTMLAttributes } from 'astro/types';\n\nexport interface Props extends HTMLAttributes<'p'> {\n  id?: string;\n}\n\nconst { class: className, id, ...props } = Astro.props;\n\nconst classes = cn(\n  'text-sm text-muted-foreground',\n  className\n);\n---\n\n<p class={classes} data-alert-dialog-description id={id} {...props}>\n  <slot />\n</p>\n"
+    },
+    {
+      "name": "AlertDialogFooter.astro",
+      "path": "alert-dialog/AlertDialogFooter.astro",
+      "content": "---\nimport { cn } from '@/utils/cn';\nimport type { HTMLAttributes } from 'astro/types';\n\nexport interface Props extends HTMLAttributes<'div'> {}\n\nconst { class: className, ...props } = Astro.props;\n\nconst classes = cn(\n  'flex flex-col-reverse gap-2 sm:flex-row sm:justify-end',\n  className\n);\n---\n\n<div class={classes} {...props}>\n  <slot />\n</div>\n"
+    },
+    {
+      "name": "AlertDialogHeader.astro",
+      "path": "alert-dialog/AlertDialogHeader.astro",
+      "content": "---\nimport { cn } from '@/utils/cn';\nimport type { HTMLAttributes } from 'astro/types';\n\nexport interface Props extends HTMLAttributes<'div'> {}\n\nconst { class: className, ...props } = Astro.props;\n\nconst classes = cn(\n  'flex flex-col gap-2 text-center sm:text-left',\n  className\n);\n---\n\n<div class={classes} {...props}>\n  <slot />\n</div>\n"
+    },
+    {
+      "name": "AlertDialogOverlay.astro",
+      "path": "alert-dialog/AlertDialogOverlay.astro",
+      "content": "---\nimport { cn } from '@/utils/cn';\nimport type { HTMLAttributes } from 'astro/types';\n\nexport interface Props extends HTMLAttributes<'div'> {}\n\nconst { class: className, ...props } = Astro.props;\n\nconst classes = cn(\n  'fixed inset-0 z-50 bg-black/80',\n  className\n);\n---\n\n<div\n  class={classes}\n  data-alert-dialog-overlay\n  hidden\n  {...props}\n/>\n"
+    },
+    {
+      "name": "AlertDialogTitle.astro",
+      "path": "alert-dialog/AlertDialogTitle.astro",
+      "content": "---\nimport { cn } from '@/utils/cn';\nimport type { HTMLAttributes } from 'astro/types';\n\nexport interface Props extends HTMLAttributes<'h2'> {\n  id?: string;\n}\n\nconst { class: className, id, ...props } = Astro.props;\n\nconst classes = cn(\n  'text-lg font-semibold',\n  className\n);\n---\n\n<h2 class={classes} data-alert-dialog-title id={id} {...props}>\n  <slot />\n</h2>\n"
+    },
+    {
+      "name": "AlertDialogTrigger.astro",
+      "path": "alert-dialog/AlertDialogTrigger.astro",
+      "content": "---\nimport { cn } from '@/utils/cn';\nimport type { HTMLAttributes } from 'astro/types';\n\nexport interface Props extends HTMLAttributes<'span'> {}\n\nconst { class: className, ...props } = Astro.props;\n---\n\n<span\n  data-alert-dialog-trigger\n  class={cn(\"inline-block cursor-pointer\", className)}\n  role=\"button\"\n  tabindex=\"0\"\n  {...props}\n>\n  <slot />\n</span>\n\n<script>\n  function initAlertDialogTriggers() {\n    document.querySelectorAll('[data-alert-dialog-trigger]').forEach((trigger) => {\n      if (trigger.hasAttribute('data-trigger-initialized')) return;\n      trigger.setAttribute('data-trigger-initialized', 'true');\n\n      trigger.addEventListener('keydown', (e) => {\n        const event = e as KeyboardEvent;\n        if (event.key === 'Enter' || event.key === ' ') {\n          event.preventDefault();\n          trigger.dispatchEvent(new MouseEvent('click', { bubbles: true }));\n        }\n      });\n    });\n  }\n\n  initAlertDialogTriggers();\n  document.addEventListener('astro:page-load', initAlertDialogTriggers);\n</script>\n"
+    }
+  ]
+}

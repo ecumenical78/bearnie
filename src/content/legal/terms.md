@@ -1,50 +1,32 @@
 ---
-page: Terms
-pubDate: 2024-01-01
+page: "服务条款"
+pubDate: 2026-03-12
+description: "V2RayN 中文指南的用户服务条款。"
 ---
 
-# Terms of Service
+# 服务条款
 
-By accessing or using the service, you agree to these Terms of Service and any related policies we reference. If you do not agree, do not use the service.
+欢迎使用 V2RayN 中文指南！本服务条款（“条款”）约束您对我们网站的访问与使用。您访问本网站，即表示您已阅读、理解并同意受本协议约束。
 
-## Using the service
-You agree to use the service in a lawful, respectful, and secure manner. You must not:
-- Violate applicable laws or regulations  
-- Interfere with or disrupt the service or other users  
-- Attempt to access systems, data, or accounts you are not authorized to use  
-- Circumvent or probe security or rate limits  
+## 1. 知识产权保护
 
-You are responsible for all activity that occurs under your account.
+本网站上生成、发布的所有原创教程、文章、图文指南及版面设计等，版权均归 V2RayN 中文指南团队所有（除明确注明的外部引用外）。
 
-## Accounts and content
-You are responsible for maintaining the confidentiality of your account credentials. You retain ownership of any content you submit or upload.
+1. 未经我们书面许可，任何人不得以商业目的转载、截取、复制本网站的任何内容。
+2. 我们欢迎大家进行以学习为目的的非商业转载，但在转载时，**必须明确标注原文链接出处**。
 
-By submitting content, you grant us a limited, non-exclusive license to host, process, and display that content solely for the purpose of operating and improving the service.
+## 2. 网站服务可用性
 
-You may not upload content that is illegal, harmful, infringing, or otherwise violates the rights of others.
+我们致力于保持本站的全天候可用，但对于因服务提供商故障、不可抗力、定期维护等原因导致的暂时性访问中断，我们不承担任何责任。
 
-## Payments and subscriptions
-If the service includes paid features, fees are billed in advance and are non-refundable unless required by law or explicitly stated otherwise. Prices, billing cycles, and features may change, and we will provide notice when material changes affect you.
+## 3. 外链声明
 
-Failure to pay may result in suspension or termination of access to paid features.
+无论在博客文章、机场推荐还是侧边栏中，本指南网站均可能包含指向由无关第三方运营外部网站的链接（如 GitHub 下载链接、机场官网等）。
+- 我们无权也无法控制这些网站的运营，同样不为其内容准确性负责。
+- 您点击链接离开本网站后遇到的一切行为损失与其他风险，概与本站无关。
 
-## Changes to the service
-We may modify, suspend, or discontinue any part of the service at any time. We will make reasonable efforts to provide advance notice when changes materially impact functionality, but we are not obligated to maintain specific features indefinitely.
+## 4. 条款修改
 
-## Availability and reliability
-We aim to provide a reliable service, but uptime is not guaranteed. The service may be unavailable due to maintenance, updates, or factors outside our control. You are responsible for backing up any data you rely on.
+本服务条款有任何更新，我们会在本页面通过修改日期进行发布。您有责任定期查看此条款。对于条款修改后仍继续使用网络指南服务的用户，我们视为您已接受修改项。
 
-## Termination
-We may suspend or terminate access to the service if you violate these terms or misuse the service. You may stop using the service at any time.
-
-## Disclaimers and limitation of liability
-The service is provided “as is” and “as available.” To the maximum extent permitted by law, we disclaim all warranties, express or implied.
-
-We are not liable for indirect, incidental, or consequential damages, or for loss of data, profits, or business arising from use of the service.
-
-## Governing law
-These terms are governed by the laws of our principal place of business, unless local consumer protection laws require otherwise.
-
-## Contact
-Questions about these terms can be sent to  
-[support@example.com](mailto:support@example.com).
+如有任何争议与投诉，欢迎与我们取得联系。

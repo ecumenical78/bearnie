@@ -1,44 +1,40 @@
 ---
-page: Privacy
-pubDate: 2024-01-01
+page: "隐私政策"
+pubDate: 2026-03-12
+description: "V2RayN 中文指南关于用户访问数据的隐私声明。"
 ---
 
-# Privacy Policy
+# 隐私政策
 
-We respect your privacy and collect only the information necessary to operate, maintain, and improve the service. This policy explains what we collect, how it’s used, and the choices you have.
+V2RayN 中文指南（以下简称“我们”或“本站”）深知隐私对您的重要性，并致力于保护您的个人信息。本隐私政策旨在解释当您访问我们的网站时，我们如何处理您的相关数据。
 
-## Information we collect
-The types of data we may collect include:
-- Account information such as name, email address, and authentication details  
-- Usage data such as pages visited, features used, and interaction timestamps  
-- Technical data such as device type, browser, operating system, and IP address  
-- Communications you send to us, including support requests and feedback  
+## 我们收集什么信息？
 
-We do not collect more data than needed to provide the service.
+作为一个纯粹的静态教程站点，**我们不要求用户注册账号，也不主动收集任何可用于识别您个人身份的敏感信息**（如姓名、地址、电话号码或电子邮件）。
 
-## How we use your data
-We use collected information to:
-- Operate, maintain, and secure the service  
-- Diagnose bugs, prevent abuse, and troubleshoot issues  
-- Remember basic preferences and settings  
-- Understand usage patterns and improve features and performance  
+当您浏览本网站时，我们可能会通过第三方分析工具（如 Umami Analytics）自动收集部分**匿名化的使用数据**，包括但不限于：
 
-We do not use your data for unrelated purposes.
+- 您访问的页面和停留时间。
+- 您访问网站时使用的设备类型、浏览器类型及屏幕分辨率。
+- 模糊的地理位置信息（如国家/地区统计）。
 
-## Sharing and disclosure
-We do not sell personal data. We may share data with trusted service providers that help us run the product, such as hosting, analytics, and customer support vendors. These providers are permitted to use data only to perform services on our behalf.
+## 本站为什么不收集个人数据？
 
-We may also disclose information if required to do so by law or to protect the rights, safety, or integrity of the service.
+我们坚信：
+没有收集就没有泄露。由于我们是一个提供 V2RayN 和网络技术学习的开源向/教程向站点，我们不需要知道您是谁，也不会对您的访问日志进行精准画像。这也是我们选择注重隐私的轻量级分析工具的原因。
 
-## Data storage and retention
-Data is stored using reasonable security measures and retained only for as long as necessary to fulfill the purposes described above or to meet legal obligations. When data is no longer required, it is deleted or anonymized.
+## 我们如何使用收集到的非敏感信息？
 
-## Your rights and choices
-You may request access to, correction of, or deletion of your personal information by contacting us. Where available, you can also opt out of optional analytics cookies through provided controls or your browser settings.
+上文提到的匿名数据，仅被我们用于以下目的：
+1. 分析访客对哪些教程更感兴趣，以便我们调整排版或增加重点词汇。
+2. 了解网站的访问故障率并进行性能优化。
+3. 统计长尾需求，持续产出高质量的技术指南。
 
-## Changes to this policy
-We may update this Privacy Policy from time to time. The publication date above reflects the most recent revision. Continued use of the service after changes indicates acceptance of the updated policy.
+## 第三方链接和广告
 
-## Contact
-If you have questions or concerns about this Privacy Policy, contact us at  
-[privacy@example.com](mailto:privacy@example.com).
+本网站的文章可能会包含前往外部网站的链接（例如推荐的代理服务商网站）。
+当您点击这些链接并脱离本站范围时，您在该外部网站的活动将不再受本隐私政策保护。请您在访问该外部站点时，仔细阅读其对应的隐私政策页面。
+
+## 隐私政策更新
+
+我们会随着国家隐私法律的要求、行业最佳实践或网站功能的变动定期更新此隐私政策。修改后，我们会更新本页面的日期标识。如果您继续使用本网站服务，即表示您接受并同意最新的隐私声明。

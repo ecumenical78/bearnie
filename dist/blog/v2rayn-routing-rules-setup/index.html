@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="zh-CN" class="scroll-smooth scrollbar-hide"> <head><!-- Meta Tags --><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#080808" media="(prefers-color-scheme: dark)"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="robots" content="index, follow"><meta name="googlebot" content="index, follow"> <!-- Google Fonts: Geist, Geist Mono (global) --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet"> <!-- Favicons --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" href="/favicon.svg" sizes="any"><link rel="apple-touch-icon" href="/favicon.svg">   <script>
+  (function () {
+    const getSystemTheme = () =>
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    const stored = localStorage.getItem("theme") || "system";
+    const resolved = stored === "system" ? getSystemTheme() : stored;
+    document.documentElement.classList.toggle("dark", resolved === "dark");
+  })();
+</script><link rel="stylesheet" href="/_astro/_slug_.D98UjMC5.css"></head> <body class="bg-background text-foreground antialiased flex flex-col min-h-svh"> <header class="sticky top-0 z-50 w-full bg-background"><div class="max-w-screen 2xl:max-w-350 mx-auto px-8 w-full"> <div class="mx-auto flex py-4 items-center justify-between"><div id="logo-context-wrapper" class="relative dark cursor-context-menu " data-logo-context> <a href="/" class="font-semibold flex items-center gap-2"><svg class="size-4" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path d="M 50 90 L 5 15 L 35 15 L 50 50 L 65 15 L 95 15 Z" fill-rule="evenodd" clip-rule="evenodd"></path> </svg>
+V2RayN 中文指南
+</a> <!-- Context Menu --> <div id="logo-context-menu" class="fixed mt-2 z-100 hidden min-w-[220px] rounded-md bg-popover px-4 py-2 shadow-xl ring-1 ring-border" data-context-menu> <!-- Pronunciation --> <div class="py-2 border-b border-border"> <span class="text-[0.65rem] text-muted-foreground">Pronunciation</span> <button class="flex items-center gap-1.5 text-sm text-popover-foreground hover:text-muted-foreground transition-colors w-full" data-play-audio> <span>/ˈbɛər-ni/ </span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-volume-2 size-3.5 ml-auto text-muted-foreground"> <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"></path><path d="M16 9a5 5 0 0 1 0 6"></path><path d="M19.364 18.364a9 9 0 0 0 0-12.728"></path>  </svg> </button> <audio id="bearnie-audio" src="/audios/bernie_voice.mp3" preload="none"></audio> </div> <!-- Copy Options --> <div class="py-1 border-b border-border"> <button class="flex w-full items-center justify-between py-1 text-xs text-popover-foreground rounded-lg hover:bg-accent transition-colors" data-copy-symbol> <span>Copy Symbol</span> <span class="text-[0.65rem] text-muted-foreground">svg</span> </button> <button class="flex w-full items-center justify-between py-1 text-xs text-popover-foreground rounded-lg hover:bg-accent transition-colors" data-copy-wordmark> <span>Copy Wordmark</span> <span class="text-[0.65rem] text-muted-foreground">svg</span> </button> </div> <!-- Download All --> <div class="pt-1"> <button class="flex w-full items-center justify-between py-1 text-xs text-popover-foreground rounded-lg hover:bg-accent transition-colors" data-download-all> <span>Download all</span> <span class="text-[0.65rem] text-muted-foreground">zip</span> </button> </div> </div> </div> <script type="module" src="/_astro/LogoContextMenu.astro_astro_type_script_index_0_lang.C0LIb4ip.js"></script><div class="flex items-center gap-4"><nav class="flex items-center gap-6 text-sm"><a href="/docs" class="text-muted-foreground hover:text-foreground transition-colors">文档</a><a href="/blog" class="text-muted-foreground hover:text-foreground transition-colors">博客</a><a href="https://lexingtonthemes.com/" class="text-muted-foreground hover:text-foreground transition-colors" target="_blank" rel="noopener noreferrer">Astro 主题</a></nav><button class="inline-flex items-center justify-center whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg]:shrink-0 cursor-pointer hover:bg-accent hover:text-accent-foreground size-7 rounded-sm text-xs [&#38;_svg]:size-3" data-theme-toggle="true" aria-label="Toggle theme"> <svg class="size-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path> <path d="M12 3l0 18"></path> <path d="M12 9l4.65 -4.65"></path> <path d="M12 14.3l7.37 -7.37"></path> <path d="M12 19.6l8.85 -8.85"></path> </svg> </button> <script>
+  // Initialize theme on page load (runs before hydration to prevent flash)
+  (function () {
+    const stored = localStorage.getItem("theme") || "light";
+    document.documentElement.classList.toggle("dark", stored === "dark");
+  })();
+</script> <script type="module">const c=()=>{document.querySelectorAll("[data-theme-toggle]").forEach(t=>{t.addEventListener("click",()=>{const e=document.documentElement.classList.contains("dark")?"light":"dark";localStorage.setItem("theme",e),document.documentElement.classList.toggle("dark",e==="dark")})})};c();</script></div></div> </div></header><script>(function(){const githubRepo = "michael-andreuzza/bearnie";
+
+  // Fetch GitHub stars
+  async function fetchGitHubStars() {
+    try {
+      const response = await fetch(
+        `https://api.github.com/repos/${githubRepo}`,
+      );
+      if (response.ok) {
+        const data = await response.json();
+        const stars = data.stargazers_count;
+        const formatted =
+          stars >= 1000 ? `${(stars / 1000).toFixed(1)}k` : stars.toString();
+        // Update both star elements if they exist
+        const docsStars = document.getElementById("github-stars-docs");
+        const defaultStars = document.getElementById("github-stars-default");
+        if (docsStars) docsStars.textContent = formatted;
+        if (defaultStars) defaultStars.textContent = formatted;
+      }
+    } catch (error) {
+      console.error("Failed to fetch GitHub stars:", error);
+    }
+  }
+  fetchGitHubStars();
+})();</script> <main class="grow"> <article class="py-12 lg:py-24"> <div class="max-w-screen 2xl:max-w-350 mx-auto px-8 w-full standard max-w-3xl">  <header class="mb-12 border-b pb-8"> <p class="text-sm  text-neutral-500 mb-4">   <time datetime="2026-03-10T00:00:00.000Z"> 2026年3月9日 </time> <span class="ml-2">作者：V2RayN 中文指南</span>  </p> <h1 class="text-lg  sm:text-xl md:text-2xl lg:text-3xl font-medium tracking-tight mb-4">  V2RayN 路由规则设置教程：如何实现全局代理与国内分流直连？  </h1> <p class="text-base sm:text-lg md:text-xl  text-muted-foreground">  详解 V2RayN 的路由模式设置：绕过大陆、全局代理、黑名单模式的概念与配置方法，教你如何实现既能科学上网又不影响国内访问速度。  </p> <div class="flex gap-2 mt-6"> <span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> 教程 </span><span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> 路由 </span><span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> 分流 </span> </div> </header> <div class="prose dark:prose-invert prose-neutral max-w-none"> <h1 id="v2rayn-路由规则设置教程如何实现全局代理与国内分流直连">V2RayN 路由规则设置教程：如何实现全局代理与国内分流直连？</h1>
+<p>很多新手在使用 V2RayN 科学上网时会遇到一个痛点：开启代理后，访问外网（如 YouTube）很快，但回头聊微信、看 B站、使用国内 App 却变得非常卡顿，甚至提示 IP 异常。</p>
+<p>这通常是因为没有配置好<strong>路由（Routing）规则</strong>。本文将教您如何设置路由，让 V2RayN 智能分流。</p>
+<h2 id="什么是路由规则routing">什么是路由规则（Routing）？</h2>
+<p>在 V2RayN 中，路由的作用就是扮演一个“交通警察”：</p>
+<ul>
+<li>看到你去<strong>国外网站</strong>的流量，指挥它走<strong>代理通道</strong>（节点）。</li>
+<li>看到你去<strong>国内网站</strong>或局域网的流量，指挥它走<strong>直连通道</strong>（你家的宽带）。</li>
+</ul>
+<h2 id="核心设置选择路由模式">核心设置：选择路由模式</h2>
+<p>在 V2RayN 底部状态栏，或者右下角系统托盘右键菜单中，您都能找到 <strong>【路由】(Routing)</strong> 选项。点击它，通常有以下几个自带的预设模式：</p>
+<h3 id="1-绕过局域网和大陆-bypass-lan-and-mainland-china">1. 绕过局域网和大陆 (Bypass LAN and mainland China)</h3>
+<p><strong>（强烈推荐，平时的默认选择）</strong></p>
+<ul>
+<li><strong>作用</strong>：国内网站（百度、淘宝、B站等）直接加载，不耗费机场流量资源；国外网站（谷歌、推特等）自动走节点代理。</li>
+<li><strong>优点</strong>：兼顾速度与隐私，省流量，体验最佳。</li>
+</ul>
+<h3 id="2-全局代理-global">2. 全局代理 (Global)</h3>
+<ul>
+<li><strong>作用</strong>：不管国内还是国外，电脑产生的所有网络流量全部强制发往你的远端服务器节点。</li>
+<li><strong>优点</strong>：极少数特殊的网站或是国内也遭屏蔽的特殊场景下需要用到。</li>
+<li><strong>缺点</strong>：浪费机场节点流量；访问国内网站延迟极高；很容易触发国内平台的异地登录风控（比如 QQ 提示异地冻结）。</li>
+</ul>
+<h3 id="3-直连-direct">3. 直连 (Direct)</h3>
+<ul>
+<li><strong>作用</strong>：所有流量强制不走代理，相当于关闭了科学上网功能。</li>
+</ul>
+<hr/>
+<h2 id="进阶如何自定义路由规则添加黑白名单">进阶：如何自定义路由规则（添加黑/白名单）</h2>
+<p>有时预设的“绕过大陆”规则不够用。例如，某个冷门的外网没有被规则库收录，导致直连打不开；或者某个国内公司的内网域名被误判走了代理。您可以手动添加自定义规则。</p>
+<ol>
+<li>在 V2RayN 主界面，点击顶部菜单的 <strong>【设置】</strong> -&gt; <strong>【路由设置】(Routing setting)</strong>。</li>
+<li>切换到 <strong>【基础路由规则】</strong> 或 <strong>【高级路由规则】</strong> 面板。</li>
+<li>您可以添加自己的规则集。例如，如果想让 <code>example.com</code> 强制走直连，可以在相关的 direct(直连) 规则下的“域名”输入框中，加入 <code>domain:example.com</code>。</li>
+<li>如果想让某个 IP 强制走代理，可以在 proxy(代理) 规则的“IP”框中，加入特定的 IP 段。</li>
+</ol>
+<p><em>(注：现代版本的 V2RayN 通常带有很完善的 <code>geoip.dat</code> 和 <code>geosite.dat</code> 规则库，普通用户通常只需选择 <strong>“绕过局域网和大陆”</strong> 即可，无需手动折腾自定义规则。)</em></p>
+<h2 id="路由失效检查系统代理模式">路由失效？检查“系统代理”模式</h2>
+<p>请务必注意：<strong>路由规则只有在流量成功进入 V2RayN 之后才会生效。</strong>
+如果您发现选了“绕过大陆”但似乎还是全局代理一样卡，请检查您的系统代理设置。任务栏右键 V2RayN 图标：</p>
+<ul>
+<li>确保 <strong>“系统代理”</strong> 选的是 <strong>“自动配置系统代理”</strong>(图标变红)。</li>
+</ul>
+<p>完成上面的配置，您就可以无缝畅游互联网，享受国内外秒开的极致体验了！</p> </div>  </div> </article> </main> <footer> <div class="max-w-screen 2xl:max-w-350 mx-auto px-8 w-full py-8">  <div class="max-w-2xl mx-auto text-center"> <p class="text-sm  text-muted-foreground">  
+由 <a target="_blank" rel="noopener noreferrer" class="text-foreground hover:text-muted-foreground" href="https://v2rayn.eu.cc">V2RayN 中文指南</a> 团队
+        基于 <a target="_blank" rel="noopener noreferrer" class="text-foreground hover:text-muted-foreground" href="https://github.com/michael-andreuzza/bearnie">Bearnie UI</a> 构建。
+  </p> <div class="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2"> <a href="/legal/about-us" class="text-sm text-muted-foreground hover:text-foreground transition-colors">关于我们</a> <a href="/legal/links" class="text-sm text-muted-foreground hover:text-foreground transition-colors">友情链接</a> <a href="/legal/disclaimer" class="text-sm text-muted-foreground hover:text-foreground transition-colors">免责声明</a> <a href="/legal/terms" class="text-sm text-muted-foreground hover:text-foreground transition-colors">服务条款</a> <a href="/legal/privacy" class="text-sm text-muted-foreground hover:text-foreground transition-colors">隐私政策</a> </div> </div>  </div> </footer> <script defer src="https://cloud.umami.is/script.js" data-website-id="0e07dbc2-4a98-4d81-87e7-ac0a0d408b2d"></script> </body> </html>

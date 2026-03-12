@@ -24,20 +24,20 @@ import ArrowRight from "@lucide/astro/icons/arrow-right";
 
 // Fetch content collections for taglines
 const docsEntries = await getCollection("docs");
-const componentEntries = await getCollection("components");
+const airportEntries = await getCollection("airport");
 
 // Create a map of href -> tagline from content
 const taglineMap = new Map<string, string>();
 
 // Add docs entries
 docsEntries.forEach((entry) => {
-  const href = entry.slug === "introduction" ? "/docs" : `/docs/${entry.slug}`;
+  const href = `/docs/${entry.slug}`;
   taglineMap.set(href, entry.data.tagline || entry.data.description);
 });
 
-// Add component entries
-componentEntries.forEach((entry) => {
-  const href = `/docs/components/${entry.slug}`;
+// Add airport entries
+airportEntries.forEach((entry) => {
+  const href = `/docs/airport/${entry.slug}`;
   taglineMap.set(href, entry.data.tagline || entry.data.description);
 });
 
@@ -65,26 +65,29 @@ const sortedDocs = docsEntries.sort((a, b) => {
   return a.data.title.localeCompare(b.data.title);
 });
 
-// Sort components alphabetically
-const sortedComponents = componentEntries.sort((a, b) =>
-  a.data.title.localeCompare(b.data.title)
-);
+// Sort airport by order, then alphabetically
+const sortedAirports = airportEntries.sort((a, b) => {
+  const orderA = a.data.order ?? 999;
+  const orderB = b.data.order ?? 999;
+  if (orderA !== orderB) return orderA - orderB;
+  return a.data.title.localeCompare(b.data.title);
+});
 
 const navigation = [
   {
-    title: "Get started",
+    title: "V2RayN 教程手册",
     icon: "sparkles" as const,
     items: sortedDocs.map((entry) => ({
       title: entry.data.title,
-      href: entry.slug === "introduction" ? "/docs" : `/docs/${entry.slug}`,
+      href: `/docs/${entry.slug}`,
     })),
   },
   {
-    title: "Components",
+    title: "机场推荐",
     icon: "component" as const,
-    items: sortedComponents.map((entry) => ({
+    items: sortedAirports.map((entry) => ({
       title: entry.data.title,
-      href: `/docs/components/${entry.slug}`,
+      href: `/docs/airport/${entry.slug}`,
     })),
   },
 ];
@@ -156,7 +159,7 @@ const isDocsPage = currentPath.startsWith("/docs");
       url: siteConfig.url,
       logo: {
         "@type": "ImageObject",
-        url: `${siteConfig.url}/images/logos/symbol.svg`,
+        url: `${siteConfig.url}/favicon.svg`,
       },
     },
     isPartOf: {

@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+import LegalLayout from "@/layouts/LegalLayout.astro";
+
+export async function getStaticPaths() {
+  const legalEntries = await getCollection("legal");
+  return legalEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+// We map entry.data directly to the frontmatter expected by LegalLayout
+const frontmatter = {
+  page: entry.data.page,
+  pubDate: entry.data.pubDate,
+  description: entry.data.description || "Legal information.",
+};
+---
+
+<LegalLayout frontmatter={frontmatter}>
+  <Content />
+</LegalLayout>

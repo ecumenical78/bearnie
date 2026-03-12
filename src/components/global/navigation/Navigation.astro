@@ -15,10 +15,10 @@ export interface Props {
 }
 const { variant = "default" } = Astro.props;
 const navLinks = [
-  { title: "Docs", href: "/docs" },
-
+  { title: "文档", href: "/docs" },
+  { title: "博客", href: "/blog" },
   {
-    title: "Astro themes",
+    title: "Astro 主题",
     href: "https://lexingtonthemes.com/",
     external: true,
   },
@@ -35,7 +35,7 @@ const githubRepo = "michael-andreuzza/bearnie";
           <LogoContextMenu>
             <a href="/" class="font-semibold flex items-center gap-2">
               <Logo class="size-4" />
-              bearnie
+              V2RayN 中文指南
             </a>
           </LogoContextMenu>
           <div class="hidden md:flex items-center gap-4">
@@ -97,7 +97,8 @@ const githubRepo = "michael-andreuzza/bearnie";
         <div class="mx-auto flex py-4 items-center justify-between">
           <LogoContextMenu>
             <a href="/" class="font-semibold flex items-center gap-2">
-              bearnie
+              <Logo class="size-4" />
+              V2RayN 中文指南
             </a>
           </LogoContextMenu>
           <div class="flex items-center gap-4">

@@ -1,0 +1,75 @@
+---
+import { AstroSeo } from "@astrolib/seo";
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+// Get all entries from the "blog" collection
+const allPosts = await getCollection("blog");
+// Sort by date (newest first)
+const sortedPosts = allPosts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout>
+  <AstroSeo
+    title="博客 - Bearnie"
+    description="阅读我们的最新动态和文章。"
+  />
+  <section class="py-12 lg:py-24">
+    <Wrapper class="standard">
+      <div class="max-w-3xl mb-12">
+        <Text tag="h1" variant="displaySM" class="font-medium tracking-tight">
+          博客
+        </Text>
+        <Text tag="p" variant="textLG" class="text-muted-foreground mt-4">
+          想法、动态和教程。
+        </Text>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          sortedPosts.map((post) => (
+            // Since BlogCard component expects an "image" field in the post which our new schema doesn't have,
+            // we will pass the basic properties instead to an adapted view or just inline it here for simplicity.
+            // Let's create a simpler card for our basic blog schema here without needing images.
+            <article class="relative flex flex-col group border rounded-xl p-6 hover:shadow-md transition-shadow">
+              <a
+                href={`/blog/${post.slug}`}
+                title={`Read more: ${post.data.title}`}
+                aria-label={`Read blog post: ${post.data.title}`}
+                class="absolute inset-0 z-10"
+              />
+              <div class="flex-1">
+                <Text tag="p" variant="textXS" class="text-sm text-neutral-500 mb-2">
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {post.data.pubDate.toLocaleDateString('zh-CN', {
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric',
+                    })}
+                  </time>
+                </Text>
+                <Text tag="h3" variant="textLG" class="font-medium mt-2">
+                  {post.data.title}
+                </Text>
+                <Text tag="p" variant="textSM" class="text-muted-foreground mt-2 line-clamp-3">
+                  {post.data.description}
+                </Text>
+              </div>
+            </article>
+          ))
+        }
+        {
+          sortedPosts.length === 0 && (
+            <div class="col-span-full py-12 text-center text-muted-foreground">
+              未找到文章。
+            </div>
+          )
+        }
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

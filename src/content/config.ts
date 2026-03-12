@@ -29,6 +29,16 @@ const docs = defineCollection({
   }),
 });
 
+const airport = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    tagline: z.string().optional(),
+    order: z.number().optional(),
+  }),
+});
+
 const legal = defineCollection({
   schema: z.object({
     page: z.string(),
@@ -36,8 +46,21 @@ const legal = defineCollection({
   }),
 });
 
+const blog = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.date(),
+    author: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+  }),
+});
+
 export const collections = {
   components,
   docs,
+  airport,
   legal,
+  blog,
 };

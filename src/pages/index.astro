@@ -13,17 +13,17 @@ const canonical = `${siteConfig.url}${Astro.url.pathname === "/" ? "" : Astro.ur
 ---
 
 <AstroSeo
-  title="Bearnie - Build your own component library"
-  description="Accessible components for Astro and Tailwind CSS. Components are added to your project. You own and control the code."
+  title="V2RayN 客户端下载、安装配置与完整使用教程 | V2RayN 中文指南"
+  description="v2rayn.eu.cc 为您提供最新版 V2RayN Windows 客户端下载、详细的图文安装教程、服务器节点配置指南及常见连接报错的解决方案。"
   canonical={canonical}
   openGraph={{
     url: canonical,
-    title: "Bearnie - Build Your Own Component Library",
+    title: "V2RayN 客户端下载、安装配置与完整使用教程 | V2RayN 中文指南",
     description:
-      "Accessible components for Astro and Tailwind CSS. Components are added to your project. You own and control the code.",
+      "v2rayn.eu.cc 为您提供最新版 V2RayN Windows 客户端下载、详细的图文安装教程、服务器节点配置指南及常见连接报错的解决方案。",
     site_name: siteConfig.name,
     type: "website",
-    locale: "en_US",
+    locale: "zh_CN",
     images: [
       {
         url: siteConfig.ogImage,
@@ -46,7 +46,7 @@ const canonical = `${siteConfig.url}${Astro.url.pathname === "/" ? "" : Astro.ur
     "@type": "WebSite",
     name: siteConfig.name,
     description:
-      "Accessible components for Astro and Tailwind CSS. Components are added to your project. You own and control the code.",
+      "v2rayn.eu.cc 为您提供最新版 V2RayN Windows 客户端下载、详细的图文安装教程、服务器节点配置指南及常见连接报错的解决方案。",
     url: siteConfig.url,
     publisher: {
       "@type": "Organization",
@@ -73,20 +73,19 @@ const canonical = `${siteConfig.url}${Astro.url.pathname === "/" ? "" : Astro.ur
           variant="textLG"
           class="font-medium tracking-tight mt-12"
         >
-          This is not a component library. <br /> This is your component library
+          探索最新的 V2RayN<br /> 教程与使用指南
           <Text tag="p" variant="textSM" class="text-muted-foreground mt-4">
-            Accessible components for Astro and Tailwind CSS. Components are
-            added to your project with the CLI. You own and control the code.
+            为您提供最新版 V2RayN Windows 客户端下载、详细的图文安装教程、服务器节点配置指南及常见连接报错的解决方案。无论您是新手上手还是进阶路由分流，都能在这里找到最全面的 V2RayN 使用技巧。
           </Text>
 
           <div class="flex items-center gap-2.5 mt-12 justify-center">
-            <Button href="/docs" size="default">Get Started</Button>
-            <Button href="/docs/components" variant="outline" size="default"
-              >Browse Components</Button
+            <Button href="/blog" size="default">阅读教程</Button>
+            <Button href="/blog" variant="outline" size="default"
+              >最新文章</Button
             >
           </div>
           <code class="mt-8 block text-xs text-muted-foreground font-mono">
-            npx bearnie init
+            科学上网客户端指北
           </code>
         </Text>
       </div>
