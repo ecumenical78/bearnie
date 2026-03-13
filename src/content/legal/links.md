@@ -6,29 +6,89 @@ description: "V2RayN 中文指南的友情链接与推荐服务。"
 
 # 友情链接
 
-欢迎来到本站的友情链接与推荐页面。我们会在这里列出我们推荐的机场（代理提供商）、技术博客以及相关的开源工具。
+欢迎来到本站的友情链接与推荐页面。为了维持本站的服务器及运维开支，部分推荐链接使用了联盟推广（Affiliate）计划。请放心，这**不会增加您的购买成本**，很多时候还能获得专属优惠。
 
-## 联盟推广与推荐机场
+> **注**：本站所有属于外部网站的推荐链接均会自动加上防流失属性，完全符合搜索引擎 SEO 规范，并且点击均在新标签页中打开。
 
-为了维持本站的服务器及运维开支，部分推荐链接使用了联盟推广（Affiliate）计划。请放心，这**不会**增加您任何额外的购买成本，甚至很多时候通过我们的链接您还能获得专属的优惠。
+<br/>
 
-### 推荐服务列表
+## ✈️ 优选机场 / 代理推荐
 
-如果您正在寻找稳定可靠的代理服务，可以参考以下我们经过长期测试并推荐的机场：
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
 
-- [Blinkload 专线机场 (示例)](https://google.com) - 高速且极致稳定的多端代理服务
-- [WgetCloud 全球加速 (示例)](https://google.com) - 适合经常看 Netflix / 游戏的用户
+  <!-- 机场卡片 1 -->
+  <a href="https://google.com" target="_blank" rel="nofollow noopener noreferrer" class="group block p-6 bg-base-100 hover:bg-base-200 border border-base-300 rounded-2xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1 no-underline">
+    <div class="flex items-center gap-4 mb-4">
+      <div class="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-blue-600 rounded-full flex items-center justify-center font-bold text-xl">
+        B
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold text-foreground m-0 group-hover:text-blue-500 transition-colors">Blinkload 专线机场</h3>
+        <p class="text-sm text-green-500 m-0 mt-1 flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full bg-green-500"></span> 稳定运行中
+        </p>
+      </div>
+    </div>
+    <p class="text-sm text-muted-foreground m-0">
+      老牌高规格专线机场，高速且极致稳定的多端代理服务。适合对外贸、设计、游戏要求极高的专业用户。
+    </p>
+  </a>
 
-> **注**：以上仅作示例。本站使用了统一的跳转规则，所有属于外部网站的推荐链接均会自动加上 `rel="nofollow noopener noreferrer"` 和在新标签页打开（`target="_blank"`）等属性，完全符合联盟推广及搜索引擎 SEO 规范。
+  <!-- 机场卡片 2 -->
+  <a href="https://google.com" target="_blank" rel="nofollow noopener noreferrer" class="group block p-6 bg-base-100 hover:bg-base-200 border border-base-300 rounded-2xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1 no-underline">
+    <div class="flex items-center gap-4 mb-4">
+      <div class="flex-shrink-0 w-12 h-12 bg-purple-100 dark:bg-purple-900/30 text-purple-600 rounded-full flex items-center justify-center font-bold text-xl">
+        W
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold text-foreground m-0 group-hover:text-purple-500 transition-colors">WgetCloud 全球加速</h3>
+        <p class="text-sm text-green-500 m-0 mt-1 flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full bg-green-500"></span> 稳定推荐
+        </p>
+      </div>
+    </div>
+    <p class="text-sm text-muted-foreground m-0">
+      自研面板，海量 IP 池流媒体解锁覆盖率高。BGP 中转线路丰富，适合经常看 Netflix、Disney+ 的追剧党及海外游戏玩家。
+    </p>
+  </a>
+</div>
 
-## 申请友情链接
+<br/>
+<hr class="my-8 border-base-200" />
+<br/>
 
-如果您也是科技、代理、网络工具分享相关的个人站长或博客号主，并且网站拥有优质的原创内容、不含恶意广告，欢迎与我们交换友情链接。
+## 🔗 申请与我们交换友情链接
+
+如果您也是科技、代理、网络工具分享相关的个人站长或博客号主，并且网站拥有优质的原创内容、不含恶意广告，欢迎与我们交换友情链接！
 
 ### 本站链接信息：
 
-- **名称**：V2RayN 中文指南
-- **简介**：最详尽的 V2RayN 图文使用教程与技巧分享
-- **地址**：`https://v2rayn.eu.cc`
+<div class="p-5 bg-base-50 dark:bg-base-900 border border-base-200 rounded-xl mt-4 font-mono text-sm">
+  <ul class="m-0 pl-4 space-y-2">
+    <li><strong>名称</strong>：V2RayN 中文指南</li>
+    <li><strong>简介</strong>：最详尽的 V2RayN 图文使用教程与技巧分享</li>
+    <li><strong>地址</strong>：<code>https://v2rayn.eu.cc</code></li>
+  </ul>
+</div>
 
-请在您的网站上添加好本站链接后，通过邮件与我们取得联系。
+<br/>
+
+请在您的网站上添加好本站链接后，通过发送邮件（或通过 GitHub Issue）与我们取得联系。我们将会在核实后最快时间内将您的网站名片展示在下方。
+
+### 技术伙伴推荐
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+
+  <!-- 友链卡片样例 -->
+  <a href="https://github.com/2dust/v2rayN" target="_blank" rel="noopener noreferrer" class="group p-4 bg-base-100 hover:bg-base-200 border border-base-200 rounded-xl transition-colors no-underline flex items-center gap-3">
+    <div class="w-10 h-10 rounded text-xl flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+      🛠️
+    </div>
+    <div>
+      <div class="font-medium text-foreground group-hover:text-blue-500 m-0">V2RayN 官方仓库</div>
+      <div class="text-xs text-muted-foreground m-0 line-clamp-1">官方 GitHub 开源代码库</div>
+    </div>
+  </a>
+
+</div>
+
