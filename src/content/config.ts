@@ -43,6 +43,7 @@ const legal = defineCollection({
   schema: z.object({
     page: z.string(),
     pubDate: z.date(),
+    description: z.string().optional(),
   }),
 });
 

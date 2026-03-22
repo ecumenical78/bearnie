@@ -4,7 +4,6 @@ import { getCollection } from "astro:content";
 import { siteConfig } from "@/config/site";
 // Fundations
 import BaseLayout from "./BaseLayout.astro";
-import CopyPageButton from "@/components/fundations/elements/CopyPageButton.astro";
 import Text from "@/components/fundations/elements/Text.astro";
 // Components
 import Badge from "@/components/ui/badge/Badge.astro";
@@ -112,12 +111,12 @@ const isDocsPage = currentPath.startsWith("/docs");
 
 <AstroSeo
   title={`${title} | ${siteConfig.name}`}
-  description={description || `Learn how to use the ${title} component.`}
+  description={description || `了解关于 ${title} 的详细使用指南。`}
   canonical={canonical}
   openGraph={{
     url: canonical,
     title: `${title} | ${siteConfig.name}`,
-    description: description || `Learn how to use the ${title} component.`,
+    description: description || `了解关于 ${title} 的详细使用指南。`,
     site_name: siteConfig.name,
     type: "article",
     locale: "en_US",
@@ -146,7 +145,7 @@ const isDocsPage = currentPath.startsWith("/docs");
     "@type": "TechArticle",
     headline: title,
     description:
-      description || `${title} - Bearnie component library documentation`,
+      description || `${title} - V2RayN 中文指南相关文档`,
     url: canonical,
     author: {
       "@type": "Organization",
@@ -223,9 +222,8 @@ const isDocsPage = currentPath.startsWith("/docs");
                           )}
                         </div>
 
-                        {/* Copy Page + Pagination */}
+                        {/* Pagination */}
                         <div class="flex items-center gap-2">
-                          <CopyPageButton />
                           {isDocsPage && (
                             <PaginationArrows
                               prevPage={prevPage}
