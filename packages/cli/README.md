@@ -138,7 +138,7 @@ For local development and testing:
 
 ```bash
 # Clone the repository
-git clone https://github.com/michael-andreuzza/bearnie.git
+git clone https://github.com/ecumenical78/bearnie.git
 cd bearnie
 
 # Install CLI dependencies

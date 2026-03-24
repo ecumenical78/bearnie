@@ -35,12 +35,12 @@
   "author": "Michael Andreuzza",
   "repository": {
     "type": "git",
-    "url": "https://github.com/michael-andreuzza/bearnie.git",
+    "url": "https://github.com/ecumenical78/bearnie.git",
     "directory": "packages/cli"
   },
   "homepage": "https://bearnie.dev",
   "bugs": {
-    "url": "https://github.com/michael-andreuzza/bearnie/issues"
+    "url": "https://github.com/ecumenical78/bearnie/issues"
   },
   "keywords": [
     "astro",

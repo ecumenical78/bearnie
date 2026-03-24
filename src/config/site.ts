@@ -13,7 +13,7 @@ export const siteConfig = {
   },
   links: {
     twitter: "https://twitter.com/mike_andreuzza",
-    github: "https://github.com/michael-andreuzza/bearnie",
+    github: "https://github.com/ecumenical78/bearnie",
   },
   // Organization info for JSON-LD
   organization: {
@@ -21,7 +21,7 @@ export const siteConfig = {
     logo: "https://v2rayn.eu.cc/favicon.svg",
     sameAs: [
       "https://twitter.com/astroui",
-      "https://github.com/michael-andreuzza/bearnie",
+      "https://github.com/ecumenical78/bearnie",
     ],
   },
 } as const;

@@ -70,7 +70,7 @@ Now you can test the CLI with `bearnie` command.
 
 ### Reporting Bugs
 
-1. Check if the issue already exists in [Issues](https://github.com/michael-andreuzza/bearnie/issues)
+1. Check if the issue already exists in [Issues](https://github.com/ecumenical78/bearnie/issues)
 2. Provide a clear, descriptive title
 3. Describe the exact steps to reproduce the problem
 4. Explain what you expected to happen vs. what actually happened
@@ -305,8 +305,8 @@ src/
 
 ## Questions or Need Help?
 
-- **Discussions:** Open a discussion in [GitHub Discussions](https://github.com/michael-andreuzza/bearnie/discussions)
-- **Issues:** Use [GitHub Issues](https://github.com/michael-andreuzza/bearnie/issues) for bugs and features
+- **Discussions:** Open a discussion in [GitHub Discussions](https://github.com/ecumenical78/bearnie/discussions)
+- **Issues:** Use [GitHub Issues](https://github.com/ecumenical78/bearnie/issues) for bugs and features
 - **Email:** Contact the maintainers
 
 ## License

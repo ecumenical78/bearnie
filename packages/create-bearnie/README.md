@@ -33,4 +33,4 @@ npm run dev
 
 - [Bearnie Documentation](https://bearnie.dev/docs)
 - [Browse Components](https://bearnie.dev/docs/components)
-- [GitHub](https://github.com/michael-andreuzza/bearnie)
+- [GitHub](https://github.com/ecumenical78/bearnie)
