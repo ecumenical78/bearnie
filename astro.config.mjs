@@ -24,6 +24,6 @@ export default defineConfig({
       defaultColor: false,
     },
   },
-  site: "https://bearnie.dev",
+  site: "https://v2rayn.eu.cc",
   integrations: [sitemap(), mdx()],
 });
