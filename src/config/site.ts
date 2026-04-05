@@ -7,12 +7,12 @@ export const siteConfig = {
   ogImage: "https://v2rayn.eu.cc/images/openGraph/facebook.png",
   twitterImage: "https://v2rayn.eu.cc/images/openGraph/twitter.png",
   author: {
-    name: "Bearnie Team",
+    name: "V2RayN 中文指南",
     url: "https://v2rayn.eu.cc",
-    twitter: "@astroui",
+    twitter: "@ygjc_cc",
   },
   links: {
-    twitter: "https://twitter.com/mike_andreuzza",
+    twitter: "https://x.com/ygjc_cc",
     github: "https://github.com/ecumenical78/bearnie",
   },
   // Organization info for JSON-LD
@@ -20,7 +20,7 @@ export const siteConfig = {
     name: "V2RayN 中文指南",
     logo: "https://v2rayn.eu.cc/favicon.svg",
     sameAs: [
-      "https://twitter.com/astroui",
+      "https://x.com/ygjc_cc",
       "https://github.com/ecumenical78/bearnie",
     ],
   },
