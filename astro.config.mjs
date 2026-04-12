@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config";
+﻿import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
@@ -24,6 +24,6 @@ export default defineConfig({
       defaultColor: false,
     },
   },
-  site: "https://v2rayn.eu.cc",
+  site: "https://v2rayn.ygjc.cc",
   integrations: [sitemap(), mdx()],
 });

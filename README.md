@@ -1,8 +1,8 @@
-<div align="center">
+﻿<div align="center">
   <h1>V2RayN 中文指南</h1>
   <p>最详尽的 V2RayN 图文使用教程与技巧分享，带你玩转 Windows 科学上网利器。</p>
-  <a href="https://v2rayn.eu.cc/">
-    <img src="https://img.shields.io/badge/OfficialWebsite-v2rayn.eu.cc-blue?style=for-the-badge&logo=googlechrome" alt="Website" />
+  <a href="https://v2rayn.ygjc.cc/">
+    <img src="https://img.shields.io/badge/OfficialWebsite-v2rayn.ygjc.cc-blue?style=for-the-badge&logo=googlechrome" alt="Website" />
   </a>
 </div>
 
@@ -11,7 +11,7 @@
 ## 🌐 访问我们的网站
 
 **全面、深度、零基础的 V2RayN 教程大全：**
-👉 **[https://v2rayn.eu.cc](https://v2rayn.eu.cc/)**
+👉 **[https://v2rayn.ygjc.cc](https://v2rayn.ygjc.cc/)**
 
 在这个项目中，我们致力于打造全网最优质的 V2RayN 使用文档库和图文介绍。无论您是刚接触代理配置的入门新手，还是熟悉多协议路由（Routing）的极客进阶玩家，都能在这里找到最优的解决方案。
 
