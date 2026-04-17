@@ -109,33 +109,7 @@ const nextTagline = nextPage ? taglineMap.get(nextPage.href) : null;
 const isDocsPage = currentPath.startsWith("/docs");
 ---
 
-<AstroSeo
-  title={`${title} | ${siteConfig.name}`}
-  description={description || `了解关于 ${title} 的详细使用指南。`}
-  canonical={canonical}
-  openGraph={{
-    url: canonical,
-    title: `${title} | ${siteConfig.name}`,
-    description: description || `了解关于 ${title} 的详细使用指南。`,
-    site_name: siteConfig.name,
-    type: "article",
-    locale: "en_US",
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: `${siteConfig.name} Open Graph image`,
-        type: "image/jpeg",
-      },
-    ],
-  }}
-  twitter={{
-    cardType: "summary_large_image",
-    site: siteConfig.author.twitter,
-    handle: siteConfig.author.twitter,
-  }}
-/>
+
 <BaseLayout
   showFooter={false}
   showNavigation={false}
@@ -166,7 +140,34 @@ const isDocsPage = currentPath.startsWith("/docs");
       name: siteConfig.name,
       url: siteConfig.url,
     },
-    keywords: keywords.length > 0 ? keywords.join(", ") : undefined,
+    keywords: keywords.length >
+  <AstroSeo slot="head"
+  title={`${title} | ${siteConfig.name}`}
+  description={description || `了解关于 ${title} 的详细使用指南。`}
+  canonical={canonical}
+  openGraph={{
+    url: canonical,
+    title: `${title} | ${siteConfig.name}`,
+    description: description || `了解关于 ${title} 的详细使用指南。`,
+    site_name: siteConfig.name,
+    type: "article",
+    locale: "en_US",
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} Open Graph image`,
+        type: "image/jpeg",
+      },
+    ],
+  }}
+  twitter={{
+    cardType: "summary_large_image",
+    site: siteConfig.author.twitter,
+    handle: siteConfig.author.twitter,
+  }}
+/> 0 ? keywords.join(", ") : undefined,
   }}
 >
   <div class="fixed inset-0 flex flex-col 2xl:max-w-350 mx-auto bg-muted">

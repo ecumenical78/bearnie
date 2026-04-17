@@ -9,7 +9,23 @@ import { siteConfig } from "@/config/site";
 const canonical = `${siteConfig.url}${Astro.url.pathname}`;
 ---
 
-<AstroSeo
+
+<BaseLayout
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Sponsors | Bearnie",
+    description:
+      "Thank you to all our sponsors who support Bearnie development.",
+    url: canonical,
+    isPartOf: {
+      "@type": "WebSite",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+  }}
+>
+  <AstroSeo slot="head"
   title="Sponsors | Bearnie"
   description="Thank you to all our sponsors who support Bearnie development."
   canonical={canonical}
@@ -37,21 +53,6 @@ const canonical = `${siteConfig.url}${Astro.url.pathname}`;
     handle: siteConfig.author.twitter,
   }}
 />
-<BaseLayout
-  structuredData={{
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "Sponsors | Bearnie",
-    description:
-      "Thank you to all our sponsors who support Bearnie development.",
-    url: canonical,
-    isPartOf: {
-      "@type": "WebSite",
-      name: siteConfig.name,
-      url: siteConfig.url,
-    },
-  }}
->
   <section>
     <Wrapper
       class="standard"

@@ -43,7 +43,9 @@ const colors = [
 const canonical = `${siteConfig.url}${Astro.url.pathname || "/"}`;
 ---
 
-<AstroSeo
+
+<BaseLayout>
+  <AstroSeo slot="head"
   title={`System Colors | ${siteConfig.name}`}
   description="Color palette and tokens."
   canonical={canonical}
@@ -70,7 +72,6 @@ const canonical = `${siteConfig.url}${Astro.url.pathname || "/"}`;
     handle: siteConfig.author.twitter,
   }}
 />
-<BaseLayout>
   <section>
     <Wrapper variant="standard" class="py-12 lg:py-24">
       <Text tag="h2" variant="displaySM" class="font-medium text-base-900">

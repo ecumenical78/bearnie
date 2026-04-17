@@ -24,7 +24,34 @@ const title = `${entry.data.title} | ${siteConfig.name}`;
 const description = entry.data.description || siteConfig.description;
 ---
 
-<AstroSeo
+
+<BaseLayout
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: entry.data.title,
+    description: description,
+    datePublished: entry.data.pubDate.toISOString(),
+    author: {
+      "@type": "Person",
+      name: entry.data.author || "V2RayN 中文指南",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteConfig.url}/favicon.svg`,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonical,
+    },
+    keywords: entry.data.tags?.join(", ") || "",
+  }}
+>
+  <AstroSeo slot="head"
   title={title}
   description={description}
   canonical={canonical}
@@ -55,32 +82,6 @@ const description = entry.data.description || siteConfig.description;
     handle: siteConfig.author.twitter,
   }}
 />
-<BaseLayout
-  structuredData={{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: entry.data.title,
-    description: description,
-    datePublished: entry.data.pubDate.toISOString(),
-    author: {
-      "@type": "Person",
-      name: entry.data.author || "V2RayN 中文指南",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: siteConfig.name,
-      logo: {
-        "@type": "ImageObject",
-        url: `${siteConfig.url}/favicon.svg`,
-      },
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": canonical,
-    },
-    keywords: entry.data.tags?.join(", ") || "",
-  }}
->
   <article class="py-12 lg:py-24">
     <Wrapper class="standard max-w-3xl">
       <header class="mb-12 border-b pb-8">

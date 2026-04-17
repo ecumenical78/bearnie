@@ -1,0 +1,119 @@
+<!DOCTYPE html><title>新手必看：2024版 V2RayN 任务栏图标颜色代表什么？附快速排错指南 | V2RayN 中文指南</title>
+<meta name="description" content="V2RayN 右下角的小图标有时候是蓝色，有时候是红色或者紫色？本文详细解读 2024 版 V2RayN 状态栏图标颜色的不同含义，并教你最快速的排错方法。">
+<link rel="canonical" href="https://v2rayn.ygjc.cc/blog/v2rayn-icon-colors-guide/">
+<meta property="og:title" content="新手必看：2024版 V2RayN 任务栏图标颜色代表什么？附快速排错指南 | V2RayN 中文指南">
+<meta property="og:description" content="V2RayN 右下角的小图标有时候是蓝色，有时候是红色或者紫色？本文详细解读 2024 版 V2RayN 状态栏图标颜色的不同含义，并教你最快速的排错方法。">
+<meta property="og:url" content="https://v2rayn.ygjc.cc/blog/v2rayn-icon-colors-guide/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://v2rayn.ygjc.cc/images/openGraph/facebook.png">
+<meta property="og:image:alt" content="新手必看：2024版 V2RayN 任务栏图标颜色代表什么？附快速排错指南 | V2RayN 中文指南">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta property="og:site_name" content="V2RayN 中文指南">
+<meta property="og:article:published_time" content="2024-04-10T00:00:00.000Z">
+<meta property="og:article:author" content="V2RayN 中文指南">
+<meta property="og:article:tag" content="新手教程">
+<meta property="og:article:tag" content="排错指南">
+<meta property="og:article:tag" content="图标颜色">
+<meta property="og:article:tag" content="2024">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ygjc_cc">
+<meta name="twitter:creator" content="@ygjc_cc"> <html lang="zh-CN" class="scroll-smooth scrollbar-hide"> <head><!-- Meta Tags --><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#080808" media="(prefers-color-scheme: dark)"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="robots" content="index, follow"><meta name="googlebot" content="index, follow"><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-SPMWWP2P9K"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SPMWWP2P9K');
+</script> <!-- Google Fonts: Geist, Geist Mono (global) --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet"> <!-- Favicons --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" href="/favicon.svg" sizes="any"><link rel="apple-touch-icon" href="/favicon.svg"> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"新手必看：2024版 V2RayN 任务栏图标颜色代表什么？附快速排错指南","description":"V2RayN 右下角的小图标有时候是蓝色，有时候是红色或者紫色？本文详细解读 2024 版 V2RayN 状态栏图标颜色的不同含义，并教你最快速的排错方法。","datePublished":"2024-04-10T00:00:00.000Z","author":{"@type":"Person","name":"V2RayN 中文指南"},"publisher":{"@type":"Organization","name":"V2RayN 中文指南","logo":{"@type":"ImageObject","url":"https://v2rayn.ygjc.cc/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://v2rayn.ygjc.cc/blog/v2rayn-icon-colors-guide/"},"keywords":"新手教程, 排错指南, 图标颜色, 2024"}</script>  <script>
+  (function () {
+    const getSystemTheme = () =>
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    const stored = localStorage.getItem("theme") || "system";
+    const resolved = stored === "system" ? getSystemTheme() : stored;
+    document.documentElement.classList.toggle("dark", resolved === "dark");
+  })();
+</script><link rel="stylesheet" href="/_astro/_slug_.DXDujV9N.css"></head> <body class="bg-background text-foreground antialiased flex flex-col min-h-svh"> <header class="sticky top-0 z-50 w-full bg-background"><div class="max-w-screen 2xl:max-w-350 mx-auto px-8 w-full"> <div class="mx-auto flex py-4 items-center justify-between"><div id="logo-context-wrapper" class="relative dark cursor-context-menu " data-logo-context> <a href="/" class="font-semibold flex items-center gap-2"><svg class="size-4" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path d="M 50 90 L 5 15 L 35 15 L 50 50 L 65 15 L 95 15 Z" fill-rule="evenodd" clip-rule="evenodd"></path> </svg>
+V2RayN 中文指南
+</a> <!-- Context Menu --> <div id="logo-context-menu" class="fixed mt-2 z-100 hidden min-w-[220px] rounded-md bg-popover px-4 py-2 shadow-xl ring-1 ring-border" data-context-menu> <!-- Pronunciation --> <div class="py-2 border-b border-border"> <span class="text-[0.65rem] text-muted-foreground">Pronunciation</span> <button class="flex items-center gap-1.5 text-sm text-popover-foreground hover:text-muted-foreground transition-colors w-full" data-play-audio> <span>/ˈbɛər-ni/ </span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-volume-2 size-3.5 ml-auto text-muted-foreground"> <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"></path><path d="M16 9a5 5 0 0 1 0 6"></path><path d="M19.364 18.364a9 9 0 0 0 0-12.728"></path>  </svg> </button> <audio id="bearnie-audio" src="/audios/bernie_voice.mp3" preload="none"></audio> </div> <!-- Copy Options --> <div class="py-1 border-b border-border"> <button class="flex w-full items-center justify-between py-1 text-xs text-popover-foreground rounded-lg hover:bg-accent transition-colors" data-copy-symbol> <span>Copy Symbol</span> <span class="text-[0.65rem] text-muted-foreground">svg</span> </button> <button class="flex w-full items-center justify-between py-1 text-xs text-popover-foreground rounded-lg hover:bg-accent transition-colors" data-copy-wordmark> <span>Copy Wordmark</span> <span class="text-[0.65rem] text-muted-foreground">svg</span> </button> </div> <!-- Download All --> <div class="pt-1"> <button class="flex w-full items-center justify-between py-1 text-xs text-popover-foreground rounded-lg hover:bg-accent transition-colors" data-download-all> <span>Download all</span> <span class="text-[0.65rem] text-muted-foreground">zip</span> </button> </div> </div> </div> <script type="module" src="/_astro/LogoContextMenu.astro_astro_type_script_index_0_lang.CGV7gOGX.js"></script><div class="flex items-center gap-4"><nav class="flex items-center gap-6 text-sm"><a href="/docs" class="text-muted-foreground hover:text-foreground transition-colors">文档</a><a href="/blog" class="text-muted-foreground hover:text-foreground transition-colors">博客</a></nav><button class="inline-flex items-center justify-center whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg]:shrink-0 cursor-pointer hover:bg-accent hover:text-accent-foreground size-7 rounded-sm text-xs [&#38;_svg]:size-3" data-theme-toggle="true" aria-label="Toggle theme"> <svg class="size-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path> <path d="M12 3l0 18"></path> <path d="M12 9l4.65 -4.65"></path> <path d="M12 14.3l7.37 -7.37"></path> <path d="M12 19.6l8.85 -8.85"></path> </svg> </button> <script>
+  // Initialize theme on page load (runs before hydration to prevent flash)
+  (function () {
+    const stored = localStorage.getItem("theme") || "light";
+    document.documentElement.classList.toggle("dark", stored === "dark");
+  })();
+</script> <script type="module">const c=()=>{document.querySelectorAll("[data-theme-toggle]").forEach(t=>{t.addEventListener("click",()=>{const e=document.documentElement.classList.contains("dark")?"light":"dark";localStorage.setItem("theme",e),document.documentElement.classList.toggle("dark",e==="dark")})})};c();</script></div></div> </div></header><script>(function(){const githubRepo = "ecumenical78/bearnie";
+
+  // Fetch GitHub stars
+  async function fetchGitHubStars() {
+    try {
+      const response = await fetch(
+        `https://api.github.com/repos/${githubRepo}`,
+      );
+      if (response.ok) {
+        const data = await response.json();
+        const stars = data.stargazers_count;
+        const formatted =
+          stars >= 1000 ? `${(stars / 1000).toFixed(1)}k` : stars.toString();
+        // Update both star elements if they exist
+        const docsStars = document.getElementById("github-stars-docs");
+        const defaultStars = document.getElementById("github-stars-default");
+        if (docsStars) docsStars.textContent = formatted;
+        if (defaultStars) defaultStars.textContent = formatted;
+      }
+    } catch (error) {
+      console.error("Failed to fetch GitHub stars:", error);
+    }
+  }
+  fetchGitHubStars();
+})();</script> <main class="grow"> <article class="py-12 lg:py-24"> <div class="max-w-screen 2xl:max-w-350 mx-auto px-8 w-full standard max-w-3xl">  <header class="mb-12 border-b pb-8"> <p class="text-sm  text-neutral-500 mb-4">   <time datetime="2024-04-10T00:00:00.000Z"> 2024年4月9日 </time> <span class="ml-2">作者：V2RayN 中文指南</span>  </p> <h1 class="text-lg  sm:text-xl md:text-2xl lg:text-3xl font-medium tracking-tight mb-4">  新手必看：2024版 V2RayN 任务栏图标颜色代表什么？附快速排错指南  </h1> <p class="text-base sm:text-lg md:text-xl  text-muted-foreground">  V2RayN 右下角的小图标有时候是蓝色，有时候是红色或者紫色？本文详细解读 2024 版 V2RayN 状态栏图标颜色的不同含义，并教你最快速的排错方法。  </p> <div class="flex gap-2 mt-6"> <span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> 新手教程 </span><span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> 排错指南 </span><span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> 图标颜色 </span><span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> 2024 </span> </div> </header> <div class="prose dark:prose-invert prose-neutral max-w-none"> <h1 id="新手必看2024版-v2rayn-任务栏图标颜色代表什么附快速排错指南">新手必看：2024版 V2RayN 任务栏图标颜色代表什么？附快速排错指南</h1>
+<p>很多刚开始使用 V2RayN 的朋友，在使用过程中总是盯着 Windows 任务栏右下角那个“V”字形的图标。有时候它变红了，有时候变紫了，却不知道到底发生了什么。</p>
+<p>在 2024 年发布的较新版本 V2RayN 中，开发者为系统托盘图标分配了直观的颜色指示系统。只要看懂这些颜色，您就能解决 80% 的连网问题！</p>
+<h2 id="-蓝色图标正常--系统代理已开启">🔵 蓝色图标（正常 &amp; 系统代理已开启）</h2>
+<ul>
+<li><strong>含义</strong>：这是最理想的状态！蓝色代表 V2RayN 运行完全正常，核心（Core）已成功启动，并且<strong>已经成功接管了 Windows 系统的默认网络代理</strong>。</li>
+<li><strong>状态说明</strong>：此时您打开 Chrome 或 Edge 浏览器访问海外网站，流量会自动经过 V2RayN 走向海外服务器。大多数路由规则（如“绕过大陆”）此时正在生效工作。</li>
+<li><strong>若蓝色依然无法上网</strong>：
+<ol>
+<li>检查选中的节点是否已经失效（请进行 <code>Ctrl+O</code> 真连接测试）。</li>
+<li>检查节点上方有没有打上红色的活动勾号（如果没有，请双击某个可用节点启用它）。</li>
+</ol>
+</li>
+</ul>
+<h2 id="-红色图标错误--端口被占用核心崩溃">🔴 红色图标（错误 &amp; 端口被占用/核心崩溃）</h2>
+<ul>
+<li><strong>含义</strong>：出现红色，说明软件正处于严重的<strong>错误状态</strong>。通常意味着底层的 Xray 引擎没有成功跑起来。</li>
+<li><strong>常见原因 1：端口冲突</strong>
+V2RayN 默认会在本地建立一个 <code>10808</code> 端口监听流量。如果您同时开了其他代理软件，或者某杀毒软件占用了这个端口，V2RayN 就会报错罢工变红。
+<ul>
+<li><strong>解决办法</strong>：打开主界面 -&gt; <code>设置</code> -&gt; <code>参数设置</code>，把 <code>本地 Socks 端口</code> 修改成 <code>12345</code> 或其他五位数，然后重启 V2RayN。</li>
+</ul>
+</li>
+<li><strong>常见原因 2：配置缺失</strong>
+缺少必要的 Xray 内核文件，或者刚才手动改动配置文件导致格式错误崩溃。
+<ul>
+<li><strong>解决办法</strong>：查看主界面下方的黑底白字“日志窗口”，里面会有红色的 Error 提示。实在看不懂，可以将 V2RayN 目录删掉，重新去官方下载一次。</li>
+</ul>
+</li>
+</ul>
+<h2 id="-紫色黑色图标代理清除">🟣 紫色/黑色图标（代理清除）</h2>
+<ul>
+<li><strong>含义</strong>：核心正常运行，但是 V2RayN <strong>没有接管系统代理</strong>（处于“清除系统代理”状态）。</li>
+<li><strong>状态说明</strong>：此时 V2RayN 就相当于在后台待命的一扇“门”，但 Windows 系统和浏览器并没有把数据导向这扇门。此时大部分普通的网页是无法翻墙出来的。</li>
+<li><strong>什么时候会用到紫色？</strong>
+<ol>
+<li>当您使用了第三方浏览器插件（如 SwitchyOmega）直接指定了 <code>127.0.0.1:10808</code> 时，您不需要开启系统级代理。</li>
+<li>当您使用 <strong>TUN 虚拟网卡模式</strong> 时，由于是在比系统代理更底层的网卡级别进行接管，因此系统代理设定会被主动清除，此时紫色的图标是正常的。</li>
+</ol>
+</li>
+<li><strong>如何恢复蓝色？</strong>：右键点击右下角的紫色小图标 -&gt; 找到 <code>系统代理</code> 选项 -&gt; 选择 <code>自动配置系统代理</code>。</li>
+</ul>
+<h2 id="-橙色黄色图标pac-模式遗留">🟠 橙色/黄色图标（PAC 模式遗留）</h2>
+<p>在进入 2024 年后，传统的 PAC（代理自动配置）模式因为其性能问题和容易被现代浏览器（如 Chrome 最新版）弃用的原因，在 V2RayN 的较新架构中已经逐步淡出或被“高级路由”机制代替。如果您还在使用早期的旧版本并看到了黄色图标，强烈建议您尽快升级到 2024 年及以后的 V2RayN 新版本，并转而使用更强大的内置路由分流规则！</p>
+<hr/>
+<p>搞懂了这些颜色代表的意义，您下次遇到问题时，就可以一秒钟判断到底是“节点挂了”还是“软件挂了”，大大缩短排错时间！</p> </div>  </div> </article> </main> <footer> <div class="max-w-screen 2xl:max-w-350 mx-auto px-8 w-full py-8">  <div class="max-w-2xl mx-auto text-center"> <p class="text-sm  text-muted-foreground">  
+由 <a target="_blank" rel="noopener noreferrer" class="text-foreground hover:text-muted-foreground" href="https://v2rayn.ygjc.cc">V2RayN 中文指南</a> 团队
+        基于 <a target="_blank" rel="noopener noreferrer" class="text-foreground hover:text-muted-foreground" href="https://github.com/ecumenical78/bearnie">Bearnie UI</a> 构建。
+  </p> <div class="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2"> <a href="/legal/about-us" class="text-sm text-muted-foreground hover:text-foreground transition-colors">关于我们</a> <a href="/legal/links" class="text-sm text-muted-foreground hover:text-foreground transition-colors">友情链接</a> <a href="/legal/disclaimer" class="text-sm text-muted-foreground hover:text-foreground transition-colors">免责声明</a> <a href="/legal/terms" class="text-sm text-muted-foreground hover:text-foreground transition-colors">服务条款</a> <a href="/legal/privacy" class="text-sm text-muted-foreground hover:text-foreground transition-colors">隐私政策</a> </div> </div>  </div> </footer> <script defer src="https://cloud.umami.is/script.js" data-website-id="0e07dbc2-4a98-4d81-87e7-ac0a0d408b2d"></script> </body> </html>

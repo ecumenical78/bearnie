@@ -1,0 +1,123 @@
+<!DOCTYPE html><title>V2RayN 路由分流规则与自定义黑白名单高级玩法 (2026实战篇) | V2RayN 中文指南</title>
+<meta name="description" content="厌倦了一刀切的全局代理？本文将教您如何在 2026 年最新版的 V2RayN 中配置高级路由规则，实现国内直连、国外走代理，甚至指定特定程序走不同节点的精细化分流。">
+<link rel="canonical" href="https://v2rayn.ygjc.cc/blog/advanced-routing-rules/">
+<meta property="og:title" content="V2RayN 路由分流规则与自定义黑白名单高级玩法 (2026实战篇) | V2RayN 中文指南">
+<meta property="og:description" content="厌倦了一刀切的全局代理？本文将教您如何在 2026 年最新版的 V2RayN 中配置高级路由规则，实现国内直连、国外走代理，甚至指定特定程序走不同节点的精细化分流。">
+<meta property="og:url" content="https://v2rayn.ygjc.cc/blog/advanced-routing-rules/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://v2rayn.ygjc.cc/images/openGraph/facebook.png">
+<meta property="og:image:alt" content="V2RayN 路由分流规则与自定义黑白名单高级玩法 (2026实战篇) | V2RayN 中文指南">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta property="og:site_name" content="V2RayN 中文指南">
+<meta property="og:article:published_time" content="2026-02-05T00:00:00.000Z">
+<meta property="og:article:author" content="V2RayN 中文指南">
+<meta property="og:article:tag" content="路由分流">
+<meta property="og:article:tag" content="进阶教程">
+<meta property="og:article:tag" content="2026">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ygjc_cc">
+<meta name="twitter:creator" content="@ygjc_cc"> <html lang="zh-CN" class="scroll-smooth scrollbar-hide"> <head><!-- Meta Tags --><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#080808" media="(prefers-color-scheme: dark)"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="robots" content="index, follow"><meta name="googlebot" content="index, follow"><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-SPMWWP2P9K"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SPMWWP2P9K');
+</script> <!-- Google Fonts: Geist, Geist Mono (global) --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet"> <!-- Favicons --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" href="/favicon.svg" sizes="any"><link rel="apple-touch-icon" href="/favicon.svg"> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"V2RayN 路由分流规则与自定义黑白名单高级玩法 (2026实战篇)","description":"厌倦了一刀切的全局代理？本文将教您如何在 2026 年最新版的 V2RayN 中配置高级路由规则，实现国内直连、国外走代理，甚至指定特定程序走不同节点的精细化分流。","datePublished":"2026-02-05T00:00:00.000Z","author":{"@type":"Person","name":"V2RayN 中文指南"},"publisher":{"@type":"Organization","name":"V2RayN 中文指南","logo":{"@type":"ImageObject","url":"https://v2rayn.ygjc.cc/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://v2rayn.ygjc.cc/blog/advanced-routing-rules/"},"keywords":"路由分流, 进阶教程, 2026"}</script>  <script>
+  (function () {
+    const getSystemTheme = () =>
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    const stored = localStorage.getItem("theme") || "system";
+    const resolved = stored === "system" ? getSystemTheme() : stored;
+    document.documentElement.classList.toggle("dark", resolved === "dark");
+  })();
+</script><link rel="stylesheet" href="/_astro/_slug_.DXDujV9N.css"></head> <body class="bg-background text-foreground antialiased flex flex-col min-h-svh"> <header class="sticky top-0 z-50 w-full bg-background"><div class="max-w-screen 2xl:max-w-350 mx-auto px-8 w-full"> <div class="mx-auto flex py-4 items-center justify-between"><div id="logo-context-wrapper" class="relative dark cursor-context-menu " data-logo-context> <a href="/" class="font-semibold flex items-center gap-2"><svg class="size-4" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path d="M 50 90 L 5 15 L 35 15 L 50 50 L 65 15 L 95 15 Z" fill-rule="evenodd" clip-rule="evenodd"></path> </svg>
+V2RayN 中文指南
+</a> <!-- Context Menu --> <div id="logo-context-menu" class="fixed mt-2 z-100 hidden min-w-[220px] rounded-md bg-popover px-4 py-2 shadow-xl ring-1 ring-border" data-context-menu> <!-- Pronunciation --> <div class="py-2 border-b border-border"> <span class="text-[0.65rem] text-muted-foreground">Pronunciation</span> <button class="flex items-center gap-1.5 text-sm text-popover-foreground hover:text-muted-foreground transition-colors w-full" data-play-audio> <span>/ˈbɛər-ni/ </span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-volume-2 size-3.5 ml-auto text-muted-foreground"> <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"></path><path d="M16 9a5 5 0 0 1 0 6"></path><path d="M19.364 18.364a9 9 0 0 0 0-12.728"></path>  </svg> </button> <audio id="bearnie-audio" src="/audios/bernie_voice.mp3" preload="none"></audio> </div> <!-- Copy Options --> <div class="py-1 border-b border-border"> <button class="flex w-full items-center justify-between py-1 text-xs text-popover-foreground rounded-lg hover:bg-accent transition-colors" data-copy-symbol> <span>Copy Symbol</span> <span class="text-[0.65rem] text-muted-foreground">svg</span> </button> <button class="flex w-full items-center justify-between py-1 text-xs text-popover-foreground rounded-lg hover:bg-accent transition-colors" data-copy-wordmark> <span>Copy Wordmark</span> <span class="text-[0.65rem] text-muted-foreground">svg</span> </button> </div> <!-- Download All --> <div class="pt-1"> <button class="flex w-full items-center justify-between py-1 text-xs text-popover-foreground rounded-lg hover:bg-accent transition-colors" data-download-all> <span>Download all</span> <span class="text-[0.65rem] text-muted-foreground">zip</span> </button> </div> </div> </div> <script type="module" src="/_astro/LogoContextMenu.astro_astro_type_script_index_0_lang.CGV7gOGX.js"></script><div class="flex items-center gap-4"><nav class="flex items-center gap-6 text-sm"><a href="/docs" class="text-muted-foreground hover:text-foreground transition-colors">文档</a><a href="/blog" class="text-muted-foreground hover:text-foreground transition-colors">博客</a></nav><button class="inline-flex items-center justify-center whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg]:shrink-0 cursor-pointer hover:bg-accent hover:text-accent-foreground size-7 rounded-sm text-xs [&#38;_svg]:size-3" data-theme-toggle="true" aria-label="Toggle theme"> <svg class="size-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path> <path d="M12 3l0 18"></path> <path d="M12 9l4.65 -4.65"></path> <path d="M12 14.3l7.37 -7.37"></path> <path d="M12 19.6l8.85 -8.85"></path> </svg> </button> <script>
+  // Initialize theme on page load (runs before hydration to prevent flash)
+  (function () {
+    const stored = localStorage.getItem("theme") || "light";
+    document.documentElement.classList.toggle("dark", stored === "dark");
+  })();
+</script> <script type="module">const c=()=>{document.querySelectorAll("[data-theme-toggle]").forEach(t=>{t.addEventListener("click",()=>{const e=document.documentElement.classList.contains("dark")?"light":"dark";localStorage.setItem("theme",e),document.documentElement.classList.toggle("dark",e==="dark")})})};c();</script></div></div> </div></header><script>(function(){const githubRepo = "ecumenical78/bearnie";
+
+  // Fetch GitHub stars
+  async function fetchGitHubStars() {
+    try {
+      const response = await fetch(
+        `https://api.github.com/repos/${githubRepo}`,
+      );
+      if (response.ok) {
+        const data = await response.json();
+        const stars = data.stargazers_count;
+        const formatted =
+          stars >= 1000 ? `${(stars / 1000).toFixed(1)}k` : stars.toString();
+        // Update both star elements if they exist
+        const docsStars = document.getElementById("github-stars-docs");
+        const defaultStars = document.getElementById("github-stars-default");
+        if (docsStars) docsStars.textContent = formatted;
+        if (defaultStars) defaultStars.textContent = formatted;
+      }
+    } catch (error) {
+      console.error("Failed to fetch GitHub stars:", error);
+    }
+  }
+  fetchGitHubStars();
+})();</script> <main class="grow"> <article class="py-12 lg:py-24"> <div class="max-w-screen 2xl:max-w-350 mx-auto px-8 w-full standard max-w-3xl">  <header class="mb-12 border-b pb-8"> <p class="text-sm  text-neutral-500 mb-4">   <time datetime="2026-02-05T00:00:00.000Z"> 2026年2月4日 </time> <span class="ml-2">作者：V2RayN 中文指南</span>  </p> <h1 class="text-lg  sm:text-xl md:text-2xl lg:text-3xl font-medium tracking-tight mb-4">  V2RayN 路由分流规则与自定义黑白名单高级玩法 (2026实战篇)  </h1> <p class="text-base sm:text-lg md:text-xl  text-muted-foreground">  厌倦了一刀切的全局代理？本文将教您如何在 2026 年最新版的 V2RayN 中配置高级路由规则，实现国内直连、国外走代理，甚至指定特定程序走不同节点的精细化分流。  </p> <div class="flex gap-2 mt-6"> <span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> 路由分流 </span><span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> 进阶教程 </span><span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> 2026 </span> </div> </header> <div class="prose dark:prose-invert prose-neutral max-w-none"> <h1 id="v2rayn-路由分流规则与自定义黑白名单高级玩法-2026实战篇">V2RayN 路由分流规则与自定义黑白名单高级玩法 (2026实战篇)</h1>
+<p>很多人在使用 V2RayN 时，只会使用右下角托盘最基础的“绕过大陆”功能。但这在 2026 年越来越复杂的互联网环境下往往不够用。比如：您可能希望看 Netflix 时走香港节点，用 ChatGPT 时走美国节点，而玩国服游戏时完全直连。</p>
+<p>这就是 <strong>“路由分流 (Routing)”</strong> 大显身手的地方。</p>
+<h2 id="什么是路由分流">什么是路由分流？</h2>
+<p>简单来说，路由分流就像是您电脑网络的一个“交警”。当您的浏览器或软件发出一个网络请求（比如访问 <code>google.com</code> 或 <code>bilibili.com</code>）时，V2RayN 会根据您设定好的规则判断：</p>
+<ul>
+<li>这个请求应该被发送给代理节点（走梯子）。</li>
+<li>这个请求应该直接发给本地运营商（直连）。</li>
+<li>或者这个请求干脆被丢弃（拦截广告）。</li>
+</ul>
+<h2 id="基础设置路由规则集简介">基础设置：路由规则集简介</h2>
+<p>在 V2RayN 菜单栏点击 <strong>“设置” -&gt; “路由设置”</strong>，您将看到“基础路由”和“高级路由”的选项。</p>
+<p>V2RayN 默认内置了最经典的基础路由集合：</p>
+<ul>
+<li><strong>全局 (Global)</strong>：强制所有流量走代理。</li>
+<li><strong>绕过大陆 (Bypass Mainland China)</strong>：根据内置的中国大陆 IP 库和域名库（<code>geoip:cn</code> 和 <code>geosite:cn</code>），自动让国内请求直连，其余流量走代理。</li>
+</ul>
+<p>如果这已经满足您的需求，您只需在系统托盘右击图标，将路由设置为“绕过大陆”即可。</p>
+<h2 id="高级实战编写自定义分流规则">高级实战：编写自定义分流规则</h2>
+<p>如果您需要更精细的控制，就需要用到**“高级路由”**。</p>
+<p>点击 <strong>“高级路由”</strong> 选项卡，点击左上角的“添加”按钮。每一个新建的规则我们称为一个“路由集”。</p>
+<h3 id="实战一让-chatgpt-强制走特定节点">实战一：让 ChatGPT 强制走特定节点</h3>
+<p>由于 OpenAI 经常封禁特定机房的 IP，您可能买了一个很贵但纯净的“美国原生节点”专门用来访问 ChatGPT，而平时看视频用便宜的“香港节点”。</p>
+<ol>
+<li>在系统主界面找到那个“原生节点”，记住它的**“别名”<strong>或</strong>“内部ID（tag）”**（假设内部 TAG 叫 <code>proxy-us</code>）。</li>
+<li>在路由设置的<strong>白名单/代理</strong>一栏中，添加匹配 OpenAI 的规则，例如输入：
+<code>domain:openai.com, domain:chatgpt.com</code></li>
+<li>在出口选择中，您可以通过自定义 JSON 将符合上述域名的流量，单独绑定（outboundTag）到您刚才那个 <code>proxy-us</code> 节点。</li>
+</ol>
+<blockquote>
+<p><strong>小贴士</strong>：大部分普通用户无需去学繁琐的 JSON 代码，现在的机场通常会提供已经写好分流模块的配置文件（如 V2Ray 的 <code>config.json</code> 或 Clash 分流订阅转换）。</p>
+</blockquote>
+<h3 id="实战二屏蔽烦人的弹窗广告与追踪软件">实战二：屏蔽烦人的弹窗广告与追踪软件</h3>
+<p>利用路由的 <code>block</code>（拦截）机制，V2RayN 也可以当做一个强力的广告拦截器：</p>
+<ol>
+<li>添加一条新规则。</li>
+<li>目标地址填入广告商的域名，例如：<code>domain:adsystem.com, keyword:guanggao</code></li>
+<li>将该规则的“出口 (Outbound)”设置为 <code>block</code>。
+这样，当软件企图加载这些广告时，V2RayN 就会像“黑洞”一样直接吃掉这些请求，实现全局去广告。</li>
+</ol>
+<h2 id="2026-年新特性应用进程级分流process-based-routing">2026 年新特性：应用进程级分流（Process Based Routing）</h2>
+<p>在最新的 Xray 内核加持下，V2RayN 现已成熟支持基于<strong>可执行文件（exe）名称</strong>的进程分流。</p>
+<p>如果您想让某个游戏完全直连，不影响对战延迟：
+仅仅在白名单规则里利用 <code>app</code> 标签即可：</p>
+<pre class="astro-code astro-code-themes bearnie-light bearnie-dark" style="--shiki-light:#8388AD;--shiki-dark:#9898A2;--shiki-light-bg:#ffffff;--shiki-dark-bg:#0F1014;overflow-x:auto" tabindex="0" data-language="text"><code><span class="line"><span>app:TslGame.exe</span></span>
+<span class="line"><span>app:League of Legends.exe</span></span></code></pre>
+<p>将这类进程绑定的出口设为 <code>direct</code>（直连）。结合<strong>TUN虚拟网卡模式</strong>，它能完美实现“一半游戏直连本地，一半工具走海外代理”的电竞级苛刻要求！</p>
+<hr/>
+<h2 id="总结">总结</h2>
+<p>掌握路由分流机制，标志着您从 V2RayN 的“新手”正式跨入了“高阶玩家”的门槛。
+不要害怕去点开 <strong>“路由设置”</strong> 面板折腾，如果您把规则弄坏了，只需右键重置为系统的“绕过局域网和大陆”即可恢复原状。开始定制您自己独一无二的最佳网络环境吧！</p> </div>  </div> </article> </main> <footer> <div class="max-w-screen 2xl:max-w-350 mx-auto px-8 w-full py-8">  <div class="max-w-2xl mx-auto text-center"> <p class="text-sm  text-muted-foreground">  
+由 <a target="_blank" rel="noopener noreferrer" class="text-foreground hover:text-muted-foreground" href="https://v2rayn.ygjc.cc">V2RayN 中文指南</a> 团队
+        基于 <a target="_blank" rel="noopener noreferrer" class="text-foreground hover:text-muted-foreground" href="https://github.com/ecumenical78/bearnie">Bearnie UI</a> 构建。
+  </p> <div class="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2"> <a href="/legal/about-us" class="text-sm text-muted-foreground hover:text-foreground transition-colors">关于我们</a> <a href="/legal/links" class="text-sm text-muted-foreground hover:text-foreground transition-colors">友情链接</a> <a href="/legal/disclaimer" class="text-sm text-muted-foreground hover:text-foreground transition-colors">免责声明</a> <a href="/legal/terms" class="text-sm text-muted-foreground hover:text-foreground transition-colors">服务条款</a> <a href="/legal/privacy" class="text-sm text-muted-foreground hover:text-foreground transition-colors">隐私政策</a> </div> </div>  </div> </footer> <script defer src="https://cloud.umami.is/script.js" data-website-id="0e07dbc2-4a98-4d81-87e7-ac0a0d408b2d"></script> </body> </html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html><title>系统代理的黄昏：2026 年为什么要全面拥抱 V2RayN 的 TUN 模式？ | V2RayN 中文指南</title>
+<meta name="description" content="还在为命令行(CMD)、微软商店应用、或是某些特定软件死活不走全局代理而发愁吗？本文将从底层原理解析，分享彻底解决代理漏网之鱼的终极方案——虚拟网卡(TUN)模式实战与个人建议。">
+<link rel="canonical" href="https://v2rayn.ygjc.cc/blog/tun-mode-vs-system-proxy/">
+<meta property="og:title" content="系统代理的黄昏：2026 年为什么要全面拥抱 V2RayN 的 TUN 模式？ | V2RayN 中文指南">
+<meta property="og:description" content="还在为命令行(CMD)、微软商店应用、或是某些特定软件死活不走全局代理而发愁吗？本文将从底层原理解析，分享彻底解决代理漏网之鱼的终极方案——虚拟网卡(TUN)模式实战与个人建议。">
+<meta property="og:url" content="https://v2rayn.ygjc.cc/blog/tun-mode-vs-system-proxy/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://v2rayn.ygjc.cc/images/openGraph/facebook.png">
+<meta property="og:image:alt" content="系统代理的黄昏：2026 年为什么要全面拥抱 V2RayN 的 TUN 模式？ | V2RayN 中文指南">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta property="og:site_name" content="V2RayN 中文指南">
+<meta property="og:article:published_time" content="2026-03-20T00:00:00.000Z">
+<meta property="og:article:author" content="V2RayN 中文指南">
+<meta property="og:article:tag" content="TUN模式">
+<meta property="og:article:tag" content="进阶教程">
+<meta property="og:article:tag" content="避坑指南">
+<meta property="og:article:tag" content="个人观点">
+<meta property="og:article:tag" content="2026">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ygjc_cc">
+<meta name="twitter:creator" content="@ygjc_cc"> <html lang="zh-CN" class="scroll-smooth scrollbar-hide"> <head><!-- Meta Tags --><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#080808" media="(prefers-color-scheme: dark)"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="robots" content="index, follow"><meta name="googlebot" content="index, follow"><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-SPMWWP2P9K"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SPMWWP2P9K');
+</script> <!-- Google Fonts: Geist, Geist Mono (global) --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet"> <!-- Favicons --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" href="/favicon.svg" sizes="any"><link rel="apple-touch-icon" href="/favicon.svg"> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"系统代理的黄昏：2026 年为什么要全面拥抱 V2RayN 的 TUN 模式？","description":"还在为命令行(CMD)、微软商店应用、或是某些特定软件死活不走全局代理而发愁吗？本文将从底层原理解析，分享彻底解决代理漏网之鱼的终极方案——虚拟网卡(TUN)模式实战与个人建议。","datePublished":"2026-03-20T00:00:00.000Z","author":{"@type":"Person","name":"V2RayN 中文指南"},"publisher":{"@type":"Organization","name":"V2RayN 中文指南","logo":{"@type":"ImageObject","url":"https://v2rayn.ygjc.cc/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://v2rayn.ygjc.cc/blog/tun-mode-vs-system-proxy/"},"keywords":"TUN模式, 进阶教程, 避坑指南, 个人观点, 2026"}</script>  <script>
+  (function () {
+    const getSystemTheme = () =>
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    const stored = localStorage.getItem("theme") || "system";
+    const resolved = stored === "system" ? getSystemTheme() : stored;
+    document.documentElement.classList.toggle("dark", resolved === "dark");
+  })();
+</script><link rel="stylesheet" href="/_astro/_slug_.DXDujV9N.css"></head> <body class="bg-background text-foreground antialiased flex flex-col min-h-svh"> <header class="sticky top-0 z-50 w-full bg-background"><div class="max-w-screen 2xl:max-w-350 mx-auto px-8 w-full"> <div class="mx-auto flex py-4 items-center justify-between"><div id="logo-context-wrapper" class="relative dark cursor-context-menu " data-logo-context> <a href="/" class="font-semibold flex items-center gap-2"><svg class="size-4" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path d="M 50 90 L 5 15 L 35 15 L 50 50 L 65 15 L 95 15 Z" fill-rule="evenodd" clip-rule="evenodd"></path> </svg>
+V2RayN 中文指南
+</a> <!-- Context Menu --> <div id="logo-context-menu" class="fixed mt-2 z-100 hidden min-w-[220px] rounded-md bg-popover px-4 py-2 shadow-xl ring-1 ring-border" data-context-menu> <!-- Pronunciation --> <div class="py-2 border-b border-border"> <span class="text-[0.65rem] text-muted-foreground">Pronunciation</span> <button class="flex items-center gap-1.5 text-sm text-popover-foreground hover:text-muted-foreground transition-colors w-full" data-play-audio> <span>/ˈbɛər-ni/ </span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-volume-2 size-3.5 ml-auto text-muted-foreground"> <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"></path><path d="M16 9a5 5 0 0 1 0 6"></path><path d="M19.364 18.364a9 9 0 0 0 0-12.728"></path>  </svg> </button> <audio id="bearnie-audio" src="/audios/bernie_voice.mp3" preload="none"></audio> </div> <!-- Copy Options --> <div class="py-1 border-b border-border"> <button class="flex w-full items-center justify-between py-1 text-xs text-popover-foreground rounded-lg hover:bg-accent transition-colors" data-copy-symbol> <span>Copy Symbol</span> <span class="text-[0.65rem] text-muted-foreground">svg</span> </button> <button class="flex w-full items-center justify-between py-1 text-xs text-popover-foreground rounded-lg hover:bg-accent transition-colors" data-copy-wordmark> <span>Copy Wordmark</span> <span class="text-[0.65rem] text-muted-foreground">svg</span> </button> </div> <!-- Download All --> <div class="pt-1"> <button class="flex w-full items-center justify-between py-1 text-xs text-popover-foreground rounded-lg hover:bg-accent transition-colors" data-download-all> <span>Download all</span> <span class="text-[0.65rem] text-muted-foreground">zip</span> </button> </div> </div> </div> <script type="module" src="/_astro/LogoContextMenu.astro_astro_type_script_index_0_lang.CGV7gOGX.js"></script><div class="flex items-center gap-4"><nav class="flex items-center gap-6 text-sm"><a href="/docs" class="text-muted-foreground hover:text-foreground transition-colors">文档</a><a href="/blog" class="text-muted-foreground hover:text-foreground transition-colors">博客</a></nav><button class="inline-flex items-center justify-center whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg]:shrink-0 cursor-pointer hover:bg-accent hover:text-accent-foreground size-7 rounded-sm text-xs [&#38;_svg]:size-3" data-theme-toggle="true" aria-label="Toggle theme"> <svg class="size-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path> <path d="M12 3l0 18"></path> <path d="M12 9l4.65 -4.65"></path> <path d="M12 14.3l7.37 -7.37"></path> <path d="M12 19.6l8.85 -8.85"></path> </svg> </button> <script>
+  // Initialize theme on page load (runs before hydration to prevent flash)
+  (function () {
+    const stored = localStorage.getItem("theme") || "light";
+    document.documentElement.classList.toggle("dark", stored === "dark");
+  })();
+</script> <script type="module">const c=()=>{document.querySelectorAll("[data-theme-toggle]").forEach(t=>{t.addEventListener("click",()=>{const e=document.documentElement.classList.contains("dark")?"light":"dark";localStorage.setItem("theme",e),document.documentElement.classList.toggle("dark",e==="dark")})})};c();</script></div></div> </div></header><script>(function(){const githubRepo = "ecumenical78/bearnie";
+
+  // Fetch GitHub stars
+  async function fetchGitHubStars() {
+    try {
+      const response = await fetch(
+        `https://api.github.com/repos/${githubRepo}`,
+      );
+      if (response.ok) {
+        const data = await response.json();
+        const stars = data.stargazers_count;
+        const formatted =
+          stars >= 1000 ? `${(stars / 1000).toFixed(1)}k` : stars.toString();
+        // Update both star elements if they exist
+        const docsStars = document.getElementById("github-stars-docs");
+        const defaultStars = document.getElementById("github-stars-default");
+        if (docsStars) docsStars.textContent = formatted;
+        if (defaultStars) defaultStars.textContent = formatted;
+      }
+    } catch (error) {
+      console.error("Failed to fetch GitHub stars:", error);
+    }
+  }
+  fetchGitHubStars();
+})();</script> <main class="grow"> <article class="py-12 lg:py-24"> <div class="max-w-screen 2xl:max-w-350 mx-auto px-8 w-full standard max-w-3xl">  <header class="mb-12 border-b pb-8"> <p class="text-sm  text-neutral-500 mb-4">   <time datetime="2026-03-20T00:00:00.000Z"> 2026年3月19日 </time> <span class="ml-2">作者：V2RayN 中文指南</span>  </p> <h1 class="text-lg  sm:text-xl md:text-2xl lg:text-3xl font-medium tracking-tight mb-4">  系统代理的黄昏：2026 年为什么要全面拥抱 V2RayN 的 TUN 模式？  </h1> <p class="text-base sm:text-lg md:text-xl  text-muted-foreground">  还在为命令行(CMD)、微软商店应用、或是某些特定软件死活不走全局代理而发愁吗？本文将从底层原理解析，分享彻底解决代理漏网之鱼的终极方案——虚拟网卡(TUN)模式实战与个人建议。  </p> <div class="flex gap-2 mt-6"> <span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> TUN模式 </span><span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> 进阶教程 </span><span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> 避坑指南 </span><span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> 个人观点 </span><span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> 2026 </span> </div> </header> <div class="prose dark:prose-invert prose-neutral max-w-none"> <h1 id="系统代理的黄昏2026-年为什么要全面拥抱-v2rayn-的-tun-模式">系统代理的黄昏：2026 年为什么要全面拥抱 V2RayN 的 TUN 模式？</h1>
+<p><img src="https://img.ygjc.cc/2026/04/202604040106.png" alt="V2RayN 的 TUN 模式"/></p>
+<p>许多使用 V2RayN 的老玩家，哪怕在 2026 年可能依然习惯于把右下角的托盘图标设为“自动配置系统代理”。确实，这是过去十年来翻墙的“黄金标准”。但这几年，你是否频繁遇到过以下几个令人崩溃的场景？</p>
+<h2 id="1-那些系统代理治不好的顽疾实战痛点实例">1. 那些系统代理治不好的“顽疾”（实战痛点实例）</h2>
+<p><strong>实例一：程序员的噩梦 —— 命令行死活连不上外网</strong>
+你在命令提示符（CMD）或 PowerShell 里敲下 <code>git clone</code>，或者执行 <code>npm install</code> 下载前端依赖，甚至在使用 Docker 拉取镜像。即便你的 V2RayN 已经开着全局代理看 YouTube 4K 无压力了，命令行里却依然无情地抛出 <code>Connection Timed Out</code>。
+<em>原因</em>：大量底层开发工具默认根本不鸟 Windows 的“系统 HTTP 代理”，它们只认自己配置文件里设置的代理环境变量。</p>
+<p><strong>实例二：微软商店（UWP）应用的“白屏傲娇”</strong>
+你想去 Windows Store 里装点东西，或者是打开 Xbox 客户端准备玩游戏，结果页面死活刷不出来。
+<em>原因</em>：微软出于安全机制（AppContainer Isolation），默认禁止 UWP 应用程序将流量发送到本地环回地址（<code>127.0.0.1</code>）。你的 V2RayN 刚好就跑在本地，这就直接阻断了应用联网的能力。</p>
+<p><strong>实例三：游戏客户端与独立软件不支持代理</strong>
+很多国外端游（如《Apex 英雄》）以及某些特定的办公软件内部根本没有提供填写 HTTP 或 SOCKS5 代理的地方，它们直接从以太网卡底层发包。</p>
+<hr/>
+<h2 id="2-tun-模式究竟是什么魔法">2. TUN 模式究竟是什么魔法？</h2>
+<p>面对这些“不听话”的软件，我们的解法就是——<strong>换掉底层的地基，这就是 TUN 模式。</strong></p>
+<blockquote>
+<p><strong>通俗解释</strong>：
+“系统代理”就像是一块立在马路边的指示牌，上面写着“请往这边走（走代理）”。听话的车（浏览器）会拐过去，但不听话的泥头车（命令行、游戏）会直接无视指示牌一路狂奔。</p>
+<p>而“TUN 模式”直接在你的 Windows 系统里“伪造”了一张物理网卡（虚拟网卡），并把马路全部封锁重定向。不管软件听不听话，就算闭着眼睛开，最终所有数据都会被强制吸入这张虚拟网卡，然后再由 V2RayN 统一按照路由原则发给海外节点。</p>
+</blockquote>
+<h2 id="3-如何在-v2rayn-中优雅开启-tun-模式">3. 如何在 V2RayN 中优雅开启 TUN 模式？</h2>
+<p>要在 V2RayN 中驯服这张虚拟网卡非常简单：</p>
+<ol>
+<li><strong>以管理员身份运行</strong>：这是关键！虚拟网卡的创建必须拥有 Windows 最高权限。请务必右键点击 V2RayN 图标，选择“以管理员身份运行”。</li>
+<li><strong>切换模式</strong>：在主界面上方菜单寻找**【自动配置系统代理】<strong>这一栏，将勾选</strong>取消掉**（清理掉传统的马路指示牌）。</li>
+<li><strong>开启 TUN</strong>：点击上方菜单的 <strong>【启动 TUN】</strong> （或者在某些最新版本中叫做【开启虚拟网卡/TUN】）。</li>
+<li>（可选高级设置）：如果想确保没有任何漏网之鱼，可以在软件设置的 TUN 具体参数页中，将绕过局域网的参数微调，或是配合基于进程的 <code>app:xxx.exe</code> 分流，达成最佳效果。</li>
+</ol>
+<p>开启后，你会发现你的电脑右下角网络图标可能会闪烁一下，系统网络中心多了一个以太网适配器。这说明 TUN 虚拟网卡已经成功接管了一切。</p>
+<h2 id="4-系统代理时代该结束了">4. 系统代理时代该结束了</h2>
+<p><strong>我的建议非常直接：如果你是一个中重度电脑使用者，请在 2026 年立刻、马上抛弃传统的系统代理，全天候开启 TUN 模式。</strong></p>
+<p>回首以前，我们为了让命令行走代理，还要额外安装 <code>Proxifier</code> 等第三方收费软件去劫持进程，或者在系统环境变量里绞尽脑汁添加 <code>HTTP_PROXY</code>，简直反人类。</p>
+<p>现在的 Xray 或 Sing-box 内核提供的 TUN 机制已经进化得极其轻量且稳定，资源占用微乎其微。结合上我们在<a href="/blog/custom-article">前一篇文章</a>里讲的“精细化进程与域名分流路由规则”，<strong>TUN 的全局强制接管 + V2RayN 的智能路由裁决</strong>，就是目前这颗星球上处理复杂网络环境的最强组合。</p>
+<p>你的浏览器去外网走高速节点，去国内走直连；而你的游戏、命令行工具都在神不知鬼不觉中享受到了一模一样的智能分发。</p>
+<p>与其整天研究哪些软件不支持代理，不如直接从网卡层把它“安排得明明白白”。这，才叫真正的一劳永逸。</p> </div>  </div> </article> </main> <footer> <div class="max-w-screen 2xl:max-w-350 mx-auto px-8 w-full py-8">  <div class="max-w-2xl mx-auto text-center"> <p class="text-sm  text-muted-foreground">  
+由 <a target="_blank" rel="noopener noreferrer" class="text-foreground hover:text-muted-foreground" href="https://v2rayn.ygjc.cc">V2RayN 中文指南</a> 团队
+        基于 <a target="_blank" rel="noopener noreferrer" class="text-foreground hover:text-muted-foreground" href="https://github.com/ecumenical78/bearnie">Bearnie UI</a> 构建。
+  </p> <div class="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2"> <a href="/legal/about-us" class="text-sm text-muted-foreground hover:text-foreground transition-colors">关于我们</a> <a href="/legal/links" class="text-sm text-muted-foreground hover:text-foreground transition-colors">友情链接</a> <a href="/legal/disclaimer" class="text-sm text-muted-foreground hover:text-foreground transition-colors">免责声明</a> <a href="/legal/terms" class="text-sm text-muted-foreground hover:text-foreground transition-colors">服务条款</a> <a href="/legal/privacy" class="text-sm text-muted-foreground hover:text-foreground transition-colors">隐私政策</a> </div> </div>  </div> </footer> <script defer src="https://cloud.umami.is/script.js" data-website-id="0e07dbc2-4a98-4d81-87e7-ac0a0d408b2d"></script> </body> </html>

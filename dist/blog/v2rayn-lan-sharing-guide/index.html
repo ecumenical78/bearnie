@@ -1,0 +1,154 @@
+<!DOCTYPE html><title>在 2024 年如何用 V2RayN 开启局域网共享？让手机、Switch、PS5 连上你的梯子 | V2RayN 中文指南</title>
+<meta name="description" content="买了机场节点却不知道怎么给没有代理软件的电视盒子或 Switch 加速？教您在 2024 版 V2RayN 中一键开启“局域网共享”，让全家设备共享安全网络环境。">
+<link rel="canonical" href="https://v2rayn.ygjc.cc/blog/v2rayn-lan-sharing-guide/">
+<meta property="og:title" content="在 2024 年如何用 V2RayN 开启局域网共享？让手机、Switch、PS5 连上你的梯子 | V2RayN 中文指南">
+<meta property="og:description" content="买了机场节点却不知道怎么给没有代理软件的电视盒子或 Switch 加速？教您在 2024 版 V2RayN 中一键开启“局域网共享”，让全家设备共享安全网络环境。">
+<meta property="og:url" content="https://v2rayn.ygjc.cc/blog/v2rayn-lan-sharing-guide/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://v2rayn.ygjc.cc/images/openGraph/facebook.png">
+<meta property="og:image:alt" content="在 2024 年如何用 V2RayN 开启局域网共享？让手机、Switch、PS5 连上你的梯子 | V2RayN 中文指南">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta property="og:site_name" content="V2RayN 中文指南">
+<meta property="og:article:published_time" content="2024-07-22T00:00:00.000Z">
+<meta property="og:article:author" content="V2RayN 中文指南">
+<meta property="og:article:tag" content="局域网共享">
+<meta property="og:article:tag" content="主机加速">
+<meta property="og:article:tag" content="路由器代连">
+<meta property="og:article:tag" content="2024">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ygjc_cc">
+<meta name="twitter:creator" content="@ygjc_cc"> <html lang="zh-CN" class="scroll-smooth scrollbar-hide"> <head><!-- Meta Tags --><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#080808" media="(prefers-color-scheme: dark)"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="robots" content="index, follow"><meta name="googlebot" content="index, follow"><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-SPMWWP2P9K"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SPMWWP2P9K');
+</script> <!-- Google Fonts: Geist, Geist Mono (global) --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet"> <!-- Favicons --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" href="/favicon.svg" sizes="any"><link rel="apple-touch-icon" href="/favicon.svg"> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"在 2024 年如何用 V2RayN 开启局域网共享？让手机、Switch、PS5 连上你的梯子","description":"买了机场节点却不知道怎么给没有代理软件的电视盒子或 Switch 加速？教您在 2024 版 V2RayN 中一键开启“局域网共享”，让全家设备共享安全网络环境。","datePublished":"2024-07-22T00:00:00.000Z","author":{"@type":"Person","name":"V2RayN 中文指南"},"publisher":{"@type":"Organization","name":"V2RayN 中文指南","logo":{"@type":"ImageObject","url":"https://v2rayn.ygjc.cc/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://v2rayn.ygjc.cc/blog/v2rayn-lan-sharing-guide/"},"keywords":"局域网共享, 主机加速, 路由器代连, 2024"}</script>  <script>
+  (function () {
+    const getSystemTheme = () =>
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    const stored = localStorage.getItem("theme") || "system";
+    const resolved = stored === "system" ? getSystemTheme() : stored;
+    document.documentElement.classList.toggle("dark", resolved === "dark");
+  })();
+</script><link rel="stylesheet" href="/_astro/_slug_.DXDujV9N.css"></head> <body class="bg-background text-foreground antialiased flex flex-col min-h-svh"> <header class="sticky top-0 z-50 w-full bg-background"><div class="max-w-screen 2xl:max-w-350 mx-auto px-8 w-full"> <div class="mx-auto flex py-4 items-center justify-between"><div id="logo-context-wrapper" class="relative dark cursor-context-menu " data-logo-context> <a href="/" class="font-semibold flex items-center gap-2"><svg class="size-4" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path d="M 50 90 L 5 15 L 35 15 L 50 50 L 65 15 L 95 15 Z" fill-rule="evenodd" clip-rule="evenodd"></path> </svg>
+V2RayN 中文指南
+</a> <!-- Context Menu --> <div id="logo-context-menu" class="fixed mt-2 z-100 hidden min-w-[220px] rounded-md bg-popover px-4 py-2 shadow-xl ring-1 ring-border" data-context-menu> <!-- Pronunciation --> <div class="py-2 border-b border-border"> <span class="text-[0.65rem] text-muted-foreground">Pronunciation</span> <button class="flex items-center gap-1.5 text-sm text-popover-foreground hover:text-muted-foreground transition-colors w-full" data-play-audio> <span>/ˈbɛər-ni/ </span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-volume-2 size-3.5 ml-auto text-muted-foreground"> <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"></path><path d="M16 9a5 5 0 0 1 0 6"></path><path d="M19.364 18.364a9 9 0 0 0 0-12.728"></path>  </svg> </button> <audio id="bearnie-audio" src="/audios/bernie_voice.mp3" preload="none"></audio> </div> <!-- Copy Options --> <div class="py-1 border-b border-border"> <button class="flex w-full items-center justify-between py-1 text-xs text-popover-foreground rounded-lg hover:bg-accent transition-colors" data-copy-symbol> <span>Copy Symbol</span> <span class="text-[0.65rem] text-muted-foreground">svg</span> </button> <button class="flex w-full items-center justify-between py-1 text-xs text-popover-foreground rounded-lg hover:bg-accent transition-colors" data-copy-wordmark> <span>Copy Wordmark</span> <span class="text-[0.65rem] text-muted-foreground">svg</span> </button> </div> <!-- Download All --> <div class="pt-1"> <button class="flex w-full items-center justify-between py-1 text-xs text-popover-foreground rounded-lg hover:bg-accent transition-colors" data-download-all> <span>Download all</span> <span class="text-[0.65rem] text-muted-foreground">zip</span> </button> </div> </div> </div> <script type="module" src="/_astro/LogoContextMenu.astro_astro_type_script_index_0_lang.CGV7gOGX.js"></script><div class="flex items-center gap-4"><nav class="flex items-center gap-6 text-sm"><a href="/docs" class="text-muted-foreground hover:text-foreground transition-colors">文档</a><a href="/blog" class="text-muted-foreground hover:text-foreground transition-colors">博客</a></nav><button class="inline-flex items-center justify-center whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg]:shrink-0 cursor-pointer hover:bg-accent hover:text-accent-foreground size-7 rounded-sm text-xs [&#38;_svg]:size-3" data-theme-toggle="true" aria-label="Toggle theme"> <svg class="size-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path> <path d="M12 3l0 18"></path> <path d="M12 9l4.65 -4.65"></path> <path d="M12 14.3l7.37 -7.37"></path> <path d="M12 19.6l8.85 -8.85"></path> </svg> </button> <script>
+  // Initialize theme on page load (runs before hydration to prevent flash)
+  (function () {
+    const stored = localStorage.getItem("theme") || "light";
+    document.documentElement.classList.toggle("dark", stored === "dark");
+  })();
+</script> <script type="module">const c=()=>{document.querySelectorAll("[data-theme-toggle]").forEach(t=>{t.addEventListener("click",()=>{const e=document.documentElement.classList.contains("dark")?"light":"dark";localStorage.setItem("theme",e),document.documentElement.classList.toggle("dark",e==="dark")})})};c();</script></div></div> </div></header><script>(function(){const githubRepo = "ecumenical78/bearnie";
+
+  // Fetch GitHub stars
+  async function fetchGitHubStars() {
+    try {
+      const response = await fetch(
+        `https://api.github.com/repos/${githubRepo}`,
+      );
+      if (response.ok) {
+        const data = await response.json();
+        const stars = data.stargazers_count;
+        const formatted =
+          stars >= 1000 ? `${(stars / 1000).toFixed(1)}k` : stars.toString();
+        // Update both star elements if they exist
+        const docsStars = document.getElementById("github-stars-docs");
+        const defaultStars = document.getElementById("github-stars-default");
+        if (docsStars) docsStars.textContent = formatted;
+        if (defaultStars) defaultStars.textContent = formatted;
+      }
+    } catch (error) {
+      console.error("Failed to fetch GitHub stars:", error);
+    }
+  }
+  fetchGitHubStars();
+})();</script> <main class="grow"> <article class="py-12 lg:py-24"> <div class="max-w-screen 2xl:max-w-350 mx-auto px-8 w-full standard max-w-3xl">  <header class="mb-12 border-b pb-8"> <p class="text-sm  text-neutral-500 mb-4">   <time datetime="2024-07-22T00:00:00.000Z"> 2024年7月21日 </time> <span class="ml-2">作者：V2RayN 中文指南</span>  </p> <h1 class="text-lg  sm:text-xl md:text-2xl lg:text-3xl font-medium tracking-tight mb-4">  在 2024 年如何用 V2RayN 开启局域网共享？让手机、Switch、PS5 连上你的梯子  </h1> <p class="text-base sm:text-lg md:text-xl  text-muted-foreground">  买了机场节点却不知道怎么给没有代理软件的电视盒子或 Switch 加速？教您在 2024 版 V2RayN 中一键开启“局域网共享”，让全家设备共享安全网络环境。  </p> <div class="flex gap-2 mt-6"> <span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> 局域网共享 </span><span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> 主机加速 </span><span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> 路由器代连 </span><span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> 2024 </span> </div> </header> <div class="prose dark:prose-invert prose-neutral max-w-none"> <h1 id="在-2024-年如何用-v2rayn-开启局域网共享让手机switchps5-连上你的梯子">在 2024 年如何用 V2RayN 开启局域网共享？让手机、Switch、PS5 连上你的梯子</h1>
+<p>我们在日常网络环境中，常常会遇到这样的痛点：</p>
+<ol>
+<li>买了任天堂 Switch 或者 PS5，想连外服商店却总是下载失败。</li>
+<li>家里长辈的智能电视或 Apple TV 想要装个 YouTube 看视频，可这些设备上根本没法直接安装全功能的科学上网客户端。</li>
+<li>手机临时需要翻墙，但不想单独把长长的订阅链接导入手机。</li>
+</ol>
+<p>其实在 2024 的 V2RayN 中，<strong>局域网共享功能（Allow LAN）</strong> 就能完美解决上述所有问题！它能把运行着 V2RayN 的这台 Windows 电脑，变成一个临时的“软路由发射器”。</p>
+<h2 id="前提条件">前提条件</h2>
+<ol>
+<li>您的这台 Windows 电脑必须<strong>已经能正常科学上网</strong>（V2RayN 处于蓝色正常连接状态）。</li>
+<li>这台电脑与您需要翻墙的设备（手机、电视或游戏机）<strong>必须连接在同一个路由器的 Wi-Fi 网络下</strong>。</li>
+</ol>
+<hr/>
+<h2 id="阶段一在-v2rayn-中允许局域网连接">阶段一：在 V2RayN 中允许局域网连接</h2>
+<p>很多新手以为只要在底部勾选了 <code>允许局域网的连接</code> 就万事大吉了。其实这在 2024 年常常不够，我们需要进行标准的系统级配置。</p>
+<ol>
+<li>
+<p><strong>查明 V2RayN 的 HTTP 本地端口</strong>
+打开 V2RayN 主界面，点击上方菜单 -&gt; <code>设置</code> -&gt; <code>参数设置</code> -&gt; 找到 <code>本地HTTP端口</code>。
+默认情况下，这个数字通常是 <code>10809</code>。请务必记住这个数字。</p>
+</li>
+<li>
+<p><strong>开启局域网共享权限</strong>
+回到 V2RayN 主界面：</p>
+<ul>
+<li>如果您使用的是旧版 V2RayN 底部栏：直接将 <code>允许局域网的连接</code> 旁边的复选框打上 <strong>[ √ ]</strong> 勾。</li>
+<li>打开这个开关后，V2RayN 会在您的 Windows 防火墙上自动打出一个“放行洞”，允许家里其他设备通过这个数字端口访问这台电脑。</li>
+</ul>
+</li>
+<li>
+<p><strong>查明这台电脑的局域网 IP 地址</strong></p>
+<ul>
+<li>按下电脑键盘上的 <code>Win + R</code> 键，输入 <code>cmd</code>，按回车。</li>
+<li>在弹出的黑框中输入：<code>ipconfig</code></li>
+<li>找到类似 <code>IPv4 地址 . . . . . . . . . . . : 192.168.1.5</code> 的这行，把这个 <code>192.168.1.x</code> 格式的数字抄下来。这就是您电脑的住址！</li>
+</ul>
+</li>
+</ol>
+<hr/>
+<h2 id="阶段二在其他设备上配置代连代理">阶段二：在其他设备上配置代连代理</h2>
+<p>这一步非常简单，我们以苹果手机（iPhone）和 Switch 为例。</p>
+<h3 id="-手机端-iosandroid-怎么连">📱 手机端 (iOS/Android) 怎么连？</h3>
+<ol>
+<li>打开手机的<strong>无线局域网 (Wi-Fi)</strong> 设置，点击您刚才所在网络的那个 <code>(i)</code> 信息图标。</li>
+<li>往最底下划，找到 <strong>“配置代理 (HTTP Proxy)”</strong>，将其从“关闭”改成 <strong>“手动”</strong>。</li>
+<li>填写我们刚才查到的信息：
+<ul>
+<li><strong>服务器 (Server)</strong>：填入电脑的 IP地址，比如 <code>192.168.1.5</code>。</li>
+<li><strong>端口 (Port)</strong>：填入 V2RayN 的 HTTP 端口，比如 <code>10809</code>。</li>
+<li>认证留空即可。</li>
+</ul>
+</li>
+<li>点击右上角的<strong>保存</strong>。现在您打开手机游览器，试试看能不能登陆 Google！</li>
+</ol>
+<h3 id="-游戏主机端-任天堂-switch-怎么连">🎮 游戏主机端 (任天堂 Switch) 怎么连？</h3>
+<ol>
+<li>进入主界面的 <strong>设置 (System Settings)</strong> -&gt; <strong>网络 (Internet)</strong> -&gt; <strong>网络设置 (Internet Settings)</strong>。</li>
+<li>选择您正在连接的 Wi-Fi 名字，点击 <strong>更改设置 (Change Settings)</strong>。</li>
+<li>向下滚动找到 <strong>代理服务器 (Proxy Settings)</strong>，将其状态改为 <strong>打开 (On)</strong>。</li>
+<li>填写：
+<ul>
+<li><strong>服务器 (Server)</strong>：填入 <code>192.168.1.5</code>（替换成您自己的电脑 IP）。</li>
+<li><strong>端口 (Port)</strong>：填入 <code>10809</code>。</li>
+</ul>
+</li>
+<li>保存退出后，执行内置的网络测速。您会发现下载外服数字版游戏的速度有了质的飞跃！</li>
+</ol>
+<h2 id="️-2024-年局域网共享排错指北">⚠️ 2024 年局域网共享排错指北</h2>
+<p>如果您按照上述步骤配置后，手机连不上，八成是以下原因：</p>
+<p><strong>1. Windows 防火墙拦截</strong>
+有时虽然 V2RayN 打了勾，但微软自家的系统防火墙或者 360 等杀毒软件太霸道，直接把数据包隔绝了。</p>
+<ul>
+<li><strong>解决</strong>：您可以临时关闭 Windows 的“专用网络防火墙”试一试；或是进入防火墙高级设置，手动新建入站规则允许 <code>10809</code> 端口。</li>
+</ul>
+<p><strong>2. 电脑睡眠或关机</strong>
+由于是您的电脑在承担搬运工的角色，一旦您的 Windows 电脑休眠、待机或是 V2RayN 没开，您的手机/主机因为强行被绑定了那个代理地址，会导致<strong>不仅外网连不上，连国内网络也会断开！</strong></p>
+<ul>
+<li><strong>解决</strong>：当您不使用电脑翻墙时，<strong>记得把手机或游戏机里的“代理设置”重新改回“关闭”</strong>！</li>
+</ul>
+<p>现在，您的家里只需要一台 Windows 主力机，就能给所有终端源源不断地输送畅快的外网环境了。</p> </div>  </div> </article> </main> <footer> <div class="max-w-screen 2xl:max-w-350 mx-auto px-8 w-full py-8">  <div class="max-w-2xl mx-auto text-center"> <p class="text-sm  text-muted-foreground">  
+由 <a target="_blank" rel="noopener noreferrer" class="text-foreground hover:text-muted-foreground" href="https://v2rayn.ygjc.cc">V2RayN 中文指南</a> 团队
+        基于 <a target="_blank" rel="noopener noreferrer" class="text-foreground hover:text-muted-foreground" href="https://github.com/ecumenical78/bearnie">Bearnie UI</a> 构建。
+  </p> <div class="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2"> <a href="/legal/about-us" class="text-sm text-muted-foreground hover:text-foreground transition-colors">关于我们</a> <a href="/legal/links" class="text-sm text-muted-foreground hover:text-foreground transition-colors">友情链接</a> <a href="/legal/disclaimer" class="text-sm text-muted-foreground hover:text-foreground transition-colors">免责声明</a> <a href="/legal/terms" class="text-sm text-muted-foreground hover:text-foreground transition-colors">服务条款</a> <a href="/legal/privacy" class="text-sm text-muted-foreground hover:text-foreground transition-colors">隐私政策</a> </div> </div>  </div> </footer> <script defer src="https://cloud.umami.is/script.js" data-website-id="0e07dbc2-4a98-4d81-87e7-ac0a0d408b2d"></script> </body> </html>

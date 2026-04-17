@@ -10,7 +10,9 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 const canonical = `${siteConfig.url}${Astro.url.pathname || "/"}`;
 ---
 
-<AstroSeo
+
+<BaseLayout>
+  <AstroSeo slot="head"
   title={`${frontmatter.page} | ${siteConfig.name}`}
   description={frontmatter.description || "Legal information."}
   canonical={canonical}
@@ -37,7 +39,6 @@ const canonical = `${siteConfig.url}${Astro.url.pathname || "/"}`;
     handle: siteConfig.author.twitter,
   }}
 />
-<BaseLayout>
   <section>
     <Wrapper variant="standard" class="py-12 lg:py-24">
       <div class="text-center">

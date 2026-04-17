@@ -12,7 +12,9 @@ import { siteConfig } from "@/config/site";
 const canonical = `${siteConfig.url}${Astro.url.pathname || "/"}`;
 ---
 
-<AstroSeo
+
+<BaseLayout showNavigation={false} showFooter={false}>
+  <AstroSeo slot="head"
   title={`404 | ${siteConfig.name}`}
   description="Page not found."
   canonical={canonical}
@@ -41,7 +43,6 @@ const canonical = `${siteConfig.url}${Astro.url.pathname || "/"}`;
     handle: siteConfig.author.twitter,
   }}
 />
-<BaseLayout showNavigation={false} showFooter={false}>
   <section>
     <Wrapper
       class="standard"

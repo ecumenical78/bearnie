@@ -9,7 +9,9 @@ import { siteConfig } from "@/config/site";
 const canonical = `${siteConfig.url}${Astro.url.pathname || "/"}`;
 ---
 
-<AstroSeo
+
+<BaseLayout>
+  <AstroSeo slot="head"
   title={`System Typography | ${siteConfig.name}`}
   description="Typography scale and styles."
   canonical={canonical}
@@ -36,7 +38,6 @@ const canonical = `${siteConfig.url}${Astro.url.pathname || "/"}`;
     handle: siteConfig.author.twitter,
   }}
 />
-<BaseLayout>
   <Wrapper variant="standard" class="py-12 lg:py-24">
     <Text tag="h2" variant="displaySM" class="font-medium text-base-900"
       >Typography

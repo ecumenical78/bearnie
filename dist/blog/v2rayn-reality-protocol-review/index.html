@@ -1,0 +1,96 @@
+<!DOCTYPE html><title>2024年回顾：面对 GFW 的多轮大规模封锁，V2RayN 和 Reality 协议是如何抗压的？ | V2RayN 中文指南</title>
+<meta name="description" content="2024 年是科学上网极为动荡的一年。本文回顾了在年中的几次大规模断网和 IP 阻断事件中，V2RayN 搭配 Xray 的底层技术是如何保障用户网络畅通的。">
+<link rel="canonical" href="https://v2rayn.ygjc.cc/blog/v2rayn-reality-protocol-review/">
+<meta property="og:title" content="2024年回顾：面对 GFW 的多轮大规模封锁，V2RayN 和 Reality 协议是如何抗压的？ | V2RayN 中文指南">
+<meta property="og:description" content="2024 年是科学上网极为动荡的一年。本文回顾了在年中的几次大规模断网和 IP 阻断事件中，V2RayN 搭配 Xray 的底层技术是如何保障用户网络畅通的。">
+<meta property="og:url" content="https://v2rayn.ygjc.cc/blog/v2rayn-reality-protocol-review/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://v2rayn.ygjc.cc/images/openGraph/facebook.png">
+<meta property="og:image:alt" content="2024年回顾：面对 GFW 的多轮大规模封锁，V2RayN 和 Reality 协议是如何抗压的？ | V2RayN 中文指南">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta property="og:site_name" content="V2RayN 中文指南">
+<meta property="og:article:published_time" content="2024-12-18T00:00:00.000Z">
+<meta property="og:article:author" content="V2RayN 中文指南">
+<meta property="og:article:tag" content="2024回顾">
+<meta property="og:article:tag" content="Reality协议">
+<meta property="og:article:tag" content="防封锁">
+<meta property="og:article:tag" content="GFW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ygjc_cc">
+<meta name="twitter:creator" content="@ygjc_cc"> <html lang="zh-CN" class="scroll-smooth scrollbar-hide"> <head><!-- Meta Tags --><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#080808" media="(prefers-color-scheme: dark)"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="robots" content="index, follow"><meta name="googlebot" content="index, follow"><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-SPMWWP2P9K"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SPMWWP2P9K');
+</script> <!-- Google Fonts: Geist, Geist Mono (global) --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet"> <!-- Favicons --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" href="/favicon.svg" sizes="any"><link rel="apple-touch-icon" href="/favicon.svg"> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"2024年回顾：面对 GFW 的多轮大规模封锁，V2RayN 和 Reality 协议是如何抗压的？","description":"2024 年是科学上网极为动荡的一年。本文回顾了在年中的几次大规模断网和 IP 阻断事件中，V2RayN 搭配 Xray 的底层技术是如何保障用户网络畅通的。","datePublished":"2024-12-18T00:00:00.000Z","author":{"@type":"Person","name":"V2RayN 中文指南"},"publisher":{"@type":"Organization","name":"V2RayN 中文指南","logo":{"@type":"ImageObject","url":"https://v2rayn.ygjc.cc/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://v2rayn.ygjc.cc/blog/v2rayn-reality-protocol-review/"},"keywords":"2024回顾, Reality协议, 防封锁, GFW"}</script>  <script>
+  (function () {
+    const getSystemTheme = () =>
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    const stored = localStorage.getItem("theme") || "system";
+    const resolved = stored === "system" ? getSystemTheme() : stored;
+    document.documentElement.classList.toggle("dark", resolved === "dark");
+  })();
+</script><link rel="stylesheet" href="/_astro/_slug_.DXDujV9N.css"></head> <body class="bg-background text-foreground antialiased flex flex-col min-h-svh"> <header class="sticky top-0 z-50 w-full bg-background"><div class="max-w-screen 2xl:max-w-350 mx-auto px-8 w-full"> <div class="mx-auto flex py-4 items-center justify-between"><div id="logo-context-wrapper" class="relative dark cursor-context-menu " data-logo-context> <a href="/" class="font-semibold flex items-center gap-2"><svg class="size-4" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path d="M 50 90 L 5 15 L 35 15 L 50 50 L 65 15 L 95 15 Z" fill-rule="evenodd" clip-rule="evenodd"></path> </svg>
+V2RayN 中文指南
+</a> <!-- Context Menu --> <div id="logo-context-menu" class="fixed mt-2 z-100 hidden min-w-[220px] rounded-md bg-popover px-4 py-2 shadow-xl ring-1 ring-border" data-context-menu> <!-- Pronunciation --> <div class="py-2 border-b border-border"> <span class="text-[0.65rem] text-muted-foreground">Pronunciation</span> <button class="flex items-center gap-1.5 text-sm text-popover-foreground hover:text-muted-foreground transition-colors w-full" data-play-audio> <span>/ˈbɛər-ni/ </span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-volume-2 size-3.5 ml-auto text-muted-foreground"> <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"></path><path d="M16 9a5 5 0 0 1 0 6"></path><path d="M19.364 18.364a9 9 0 0 0 0-12.728"></path>  </svg> </button> <audio id="bearnie-audio" src="/audios/bernie_voice.mp3" preload="none"></audio> </div> <!-- Copy Options --> <div class="py-1 border-b border-border"> <button class="flex w-full items-center justify-between py-1 text-xs text-popover-foreground rounded-lg hover:bg-accent transition-colors" data-copy-symbol> <span>Copy Symbol</span> <span class="text-[0.65rem] text-muted-foreground">svg</span> </button> <button class="flex w-full items-center justify-between py-1 text-xs text-popover-foreground rounded-lg hover:bg-accent transition-colors" data-copy-wordmark> <span>Copy Wordmark</span> <span class="text-[0.65rem] text-muted-foreground">svg</span> </button> </div> <!-- Download All --> <div class="pt-1"> <button class="flex w-full items-center justify-between py-1 text-xs text-popover-foreground rounded-lg hover:bg-accent transition-colors" data-download-all> <span>Download all</span> <span class="text-[0.65rem] text-muted-foreground">zip</span> </button> </div> </div> </div> <script type="module" src="/_astro/LogoContextMenu.astro_astro_type_script_index_0_lang.CGV7gOGX.js"></script><div class="flex items-center gap-4"><nav class="flex items-center gap-6 text-sm"><a href="/docs" class="text-muted-foreground hover:text-foreground transition-colors">文档</a><a href="/blog" class="text-muted-foreground hover:text-foreground transition-colors">博客</a></nav><button class="inline-flex items-center justify-center whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&#38;_svg]:pointer-events-none [&#38;_svg]:shrink-0 cursor-pointer hover:bg-accent hover:text-accent-foreground size-7 rounded-sm text-xs [&#38;_svg]:size-3" data-theme-toggle="true" aria-label="Toggle theme"> <svg class="size-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path> <path d="M12 3l0 18"></path> <path d="M12 9l4.65 -4.65"></path> <path d="M12 14.3l7.37 -7.37"></path> <path d="M12 19.6l8.85 -8.85"></path> </svg> </button> <script>
+  // Initialize theme on page load (runs before hydration to prevent flash)
+  (function () {
+    const stored = localStorage.getItem("theme") || "light";
+    document.documentElement.classList.toggle("dark", stored === "dark");
+  })();
+</script> <script type="module">const c=()=>{document.querySelectorAll("[data-theme-toggle]").forEach(t=>{t.addEventListener("click",()=>{const e=document.documentElement.classList.contains("dark")?"light":"dark";localStorage.setItem("theme",e),document.documentElement.classList.toggle("dark",e==="dark")})})};c();</script></div></div> </div></header><script>(function(){const githubRepo = "ecumenical78/bearnie";
+
+  // Fetch GitHub stars
+  async function fetchGitHubStars() {
+    try {
+      const response = await fetch(
+        `https://api.github.com/repos/${githubRepo}`,
+      );
+      if (response.ok) {
+        const data = await response.json();
+        const stars = data.stargazers_count;
+        const formatted =
+          stars >= 1000 ? `${(stars / 1000).toFixed(1)}k` : stars.toString();
+        // Update both star elements if they exist
+        const docsStars = document.getElementById("github-stars-docs");
+        const defaultStars = document.getElementById("github-stars-default");
+        if (docsStars) docsStars.textContent = formatted;
+        if (defaultStars) defaultStars.textContent = formatted;
+      }
+    } catch (error) {
+      console.error("Failed to fetch GitHub stars:", error);
+    }
+  }
+  fetchGitHubStars();
+})();</script> <main class="grow"> <article class="py-12 lg:py-24"> <div class="max-w-screen 2xl:max-w-350 mx-auto px-8 w-full standard max-w-3xl">  <header class="mb-12 border-b pb-8"> <p class="text-sm  text-neutral-500 mb-4">   <time datetime="2024-12-18T00:00:00.000Z"> 2024年12月17日 </time> <span class="ml-2">作者：V2RayN 中文指南</span>  </p> <h1 class="text-lg  sm:text-xl md:text-2xl lg:text-3xl font-medium tracking-tight mb-4">  2024年回顾：面对 GFW 的多轮大规模封锁，V2RayN 和 Reality 协议是如何抗压的？  </h1> <p class="text-base sm:text-lg md:text-xl  text-muted-foreground">  2024 年是科学上网极为动荡的一年。本文回顾了在年中的几次大规模断网和 IP 阻断事件中，V2RayN 搭配 Xray 的底层技术是如何保障用户网络畅通的。  </p> <div class="flex gap-2 mt-6"> <span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> 2024回顾 </span><span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> Reality协议 </span><span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> 防封锁 </span><span class="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full"> GFW </span> </div> </header> <div class="prose dark:prose-invert prose-neutral max-w-none"> <h1 id="2024年回顾面对-gfw-的多轮大规模封锁v2rayn-是如何抗压的">2024年回顾：面对 GFW 的多轮大规模封锁，V2RayN 是如何抗压的？</h1>
+<p>对于广大依赖跨国网络进行学术研究、外贸工作和日常娱乐的用户来说，2024 年无疑是让人记忆深刻的一年。在今年的几个特定时间节点（如 3月、6月和 10月），防火长城（GFW）进行了数次极其严厉的大规模主动探测与 IP 封锁。</p>
+<p>在哀鸿遍野的各大技术论坛中，传统的 Shadowsocks 甚至早期的 VMess 节点大面积阵亡。但与此同时，使用 <strong>V2RayN</strong> 搭配 <strong>VLESS-Reality</strong> 协议的用户却显得异常安静。今天我们就来回顾一下，在 2024 年，究竟是什么技术在默默守护着我们的网络生命线？</p>
+<h2 id="1-为什么传统协议在-2024-年失灵了">1. 为什么传统协议在 2024 年“失灵”了？</h2>
+<p>过去，机场和技术爱好者们普遍采用伪装域名的套路：买一个便宜的 <code>.xyz</code> 域名，假装自己是个普通的网站。</p>
+<p>然而在 2024 年，GFW 的算力迎来了极大提升。它部署了更加智能的**主动探测（Active Probing）**机制。一旦它怀疑您的服务器在翻墙，它会伪装成一个普通的访客去“敲门”。如果您服务器上的 Nginx 配置出现了哪怕一丝漏洞，或者指纹稍微对不上，GFW 就会立刻判定异常，接着在几分钟内无情地封锁您的服务器 IP 或端口。</p>
+<h2 id="2-破局者xray-core-与-reality-协议的成熟">2. 破局者：Xray-core 与 Reality 协议的成熟</h2>
+<p>在这场猫鼠游戏中，由 Xray 团队开发的 <strong>Reality 协议</strong> 在 2024 年迎来了大爆发，并几乎成为了所有高端机场的标配。而作为 Windows 端最主流的框架，V2RayN 完美承载了这套技术。</p>
+<p><strong>Reality 协议的神奇之处在哪里？</strong></p>
+<ol>
+<li><strong>借尸还魂，不需要域名</strong>。
+Reality 完全摒弃了传统建站伪装的方法。它直接“偷取”海外知名大厂（如微软、苹果、亚马逊）真实网站的数字证书和 TLS 握手特征。</li>
+<li><strong>完美的指纹级伪装</strong>。
+当 GFW 试图嗅探时，Reality 会让连接看起来与访问普通的微软更新服务器毫无二致。GFW 面对这种级别的伪装，如果直接阻断，就会导致全国大面积的微软服务瘫痪（这种误杀的代价它无法承受）。</li>
+<li><strong>消除 SNI 被劫持风险</strong>。
+它解决了在此之前传统的 TLS 伪装在握手明文阶段（SNI）容易被旁路阻断的死穴。</li>
+</ol>
+<h2 id="3-v2rayn-在这一过程中的作用">3. V2RayN 在这一过程中的作用</h2>
+<p>技术再强，也需要方便的载体。
+在 2024 年中，V2RayN 客户端迅速跟进更新，在界面配置中增加了对 <code>pbk</code>（Public Key）和 <code>shortId</code> 等 Reality 专属配置项的完善支持。不仅如此，它极大简化了用户导入此类高级节点时所需的学习成本：只要复制 <code>vless://</code> 链接并按回车导入，底层复杂的加密解密、XTLS Direct 流控技术，通通在后台默默运作。</p>
+<h2 id="4-展望未来">4. 展望未来</h2>
+<p>2024 年的大规模封关事件给我们上了一课：单纯依靠隐蔽冷门端口的时代已经结束了，<strong>流量伪装的终极形态是融于大众</strong>。</p>
+<p>可以预见的是，在未来更长的一段时间内，VLESS + Reality + XTLS Vision 的组合依然会是抗封锁的 T0 级答案。如果您还没体验过这套在 2024 年大放异彩的协议组合，赶紧打开 V2RayN，找一个支持 Reality 的节点试一试吧！</p> </div>  </div> </article> </main> <footer> <div class="max-w-screen 2xl:max-w-350 mx-auto px-8 w-full py-8">  <div class="max-w-2xl mx-auto text-center"> <p class="text-sm  text-muted-foreground">  
+由 <a target="_blank" rel="noopener noreferrer" class="text-foreground hover:text-muted-foreground" href="https://v2rayn.ygjc.cc">V2RayN 中文指南</a> 团队
+        基于 <a target="_blank" rel="noopener noreferrer" class="text-foreground hover:text-muted-foreground" href="https://github.com/ecumenical78/bearnie">Bearnie UI</a> 构建。
+  </p> <div class="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2"> <a href="/legal/about-us" class="text-sm text-muted-foreground hover:text-foreground transition-colors">关于我们</a> <a href="/legal/links" class="text-sm text-muted-foreground hover:text-foreground transition-colors">友情链接</a> <a href="/legal/disclaimer" class="text-sm text-muted-foreground hover:text-foreground transition-colors">免责声明</a> <a href="/legal/terms" class="text-sm text-muted-foreground hover:text-foreground transition-colors">服务条款</a> <a href="/legal/privacy" class="text-sm text-muted-foreground hover:text-foreground transition-colors">隐私政策</a> </div> </div>  </div> </footer> <script defer src="https://cloud.umami.is/script.js" data-website-id="0e07dbc2-4a98-4d81-87e7-ac0a0d408b2d"></script> </body> </html>

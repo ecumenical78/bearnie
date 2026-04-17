@@ -12,7 +12,28 @@ import { siteConfig } from "@/config/site";
 const canonical = `${siteConfig.url}${Astro.url.pathname === "/" ? "" : Astro.url.pathname}`;
 ---
 
-<AstroSeo
+
+<BaseLayout
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteConfig.name,
+    description:
+      "v2rayn.ygjc.cc 为您提供最新版 V2RayN Windows 客户端下载、详细的图文安装教程、服务器节点配置指南及常见连接报错的解决方案。",
+    url: siteConfig.url,
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+      logo: {
+        "@type": "ImageObject",
+        url: siteConfig.ogImage,
+      },
+    },
+    sameAs: [siteConfig.author.twitter],
+  }}
+>
+  <AstroSeo slot="head"
   title="V2RayN 客户端下载、安装配置与完整使用教程 | V2RayN 中文指南"
   description="v2rayn.ygjc.cc 为您提供最新版 V2RayN Windows 客户端下载、详细的图文安装教程、服务器节点配置指南及常见连接报错的解决方案。"
   canonical={canonical}
@@ -40,26 +61,6 @@ const canonical = `${siteConfig.url}${Astro.url.pathname === "/" ? "" : Astro.ur
     handle: siteConfig.author.twitter,
   }}
 />
-<BaseLayout
-  structuredData={{
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: siteConfig.name,
-    description:
-      "v2rayn.ygjc.cc 为您提供最新版 V2RayN Windows 客户端下载、详细的图文安装教程、服务器节点配置指南及常见连接报错的解决方案。",
-    url: siteConfig.url,
-    publisher: {
-      "@type": "Organization",
-      name: siteConfig.name,
-      url: siteConfig.url,
-      logo: {
-        "@type": "ImageObject",
-        url: siteConfig.ogImage,
-      },
-    },
-    sameAs: [siteConfig.author.twitter],
-  }}
->
   <section>
     <Wrapper
       class="standard"
