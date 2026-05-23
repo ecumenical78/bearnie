@@ -6,6 +6,11 @@ author: "V2RayN 中文指南"
 tags: ["下载", "安装", "Windows"]
 ---
 
+import Alert from "@/components/ui/alert/Alert.astro";
+import AlertTitle from "@/components/ui/alert/AlertTitle.astro";
+import AlertDescription from "@/components/ui/alert/AlertDescription.astro";
+import Info from "@lucide/astro/icons/info";
+
 # V2RayN 最新版官方下载地址与详细安装教程 (Windows篇)
 
 V2RayN 是 Windows 平台上最受欢迎的免费开源科学上网客户端之一，支持 Vmess、Vless、Trojan、Shadowsocks 等多种代理协议。本文将为您提供详细的下载与安装指南。
@@ -46,6 +51,12 @@ V2RayN 是免安装的绿色软件，下载后请按照以下步骤操作：
 
 - **打开主界面**：双击任务栏的小图标。
 - **退出软件**：右键点击小图标 -> 选择“退出”。
+
+<Alert variant="info">
+  <Info class="size-4" />
+  <AlertTitle>在准备配置上网之前，您还需要拥有高品质的节点订阅服务。</AlertTitle>
+  <AlertDescription>如果您还没购买或找到稳定好用的机场，建议提前参考我们的 <a href="/docs/airport/best-airports-2026">2026年稳定高速翻墙机场对比推荐</a>，挑选最适合您的网络服务；如果您想省去高额月费，推荐查看极致低门槛的 <a href="/docs/airport/mitce-review">Mitce 机场深度评测</a>（最低套餐仅为 $0.60/月），获取安全防封锁的 Reality 线路。</AlertDescription>
+</Alert>
 
 下一篇文章，我们将介绍如何将节点/订阅导入到 V2RayN 中，并开始科学上网。
 👉 **[阅读下篇：《V2RayN 怎么用？从零开始的 V2RayN 节点配置与上网指南》](/blog/v2rayn-how-to-use-config-guide)**

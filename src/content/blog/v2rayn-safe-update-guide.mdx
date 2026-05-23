@@ -6,6 +6,11 @@ author: "V2RayN 中文指南"
 tags: ["更新指南", "数据备份", "2024"]
 ---
 
+import Alert from "@/components/ui/alert/Alert.astro";
+import AlertTitle from "@/components/ui/alert/AlertTitle.astro";
+import AlertDescription from "@/components/ui/alert/AlertDescription.astro";
+import Info from "@lucide/astro/icons/info";
+
 # 手把手教您在 2024 年更新 V2RayN：如何避免节点配置、白名单丢失？
 
 在开源软件界，V2RayN 以其极高的迭代频率而著称。在 2024 年，它更是几乎每个月都会修复 Bug 或引入新内核的调用接口。
@@ -56,4 +61,11 @@ tags: ["更新指南", "数据备份", "2024"]
 
 ## 总结
 
-在 2024 年以及后续的大版本更迭中，**只要您牢牢捏住了存放订阅和参数的 `.json` 配置文件和本地的 `.db` 数据库**，您随时都可以像换衣服一样轻松切换不同版本的 V2RayN 客户端。快去把那讨厌的红点升级提示消灭掉吧！
+在 2024 年以及后续的大版本更迭中，**只要您牢牢捏住了存放订阅 and 参数的 `.json` 配置文件和本地的 `.db` 数据库**，您随时都可以像换衣服一样轻松切换不同版本的 V2RayN 客户端。快去把那讨厌的红点升级提示消灭掉吧！
+
+<Alert variant="info">
+  <Info class="size-4" />
+  <AlertTitle>更新完成后，如果发现之前的旧订阅节点已经过期或大面积失效？</AlertTitle>
+  <AlertDescription>这是因为网络环境不断演变，许多旧协议节点不再受新版本内核支持。除了更新软件，您也需要一个支持最新防封锁协议（如 VLESS Reality 和 Hysteria 2）的高品质订阅。建议参考我们的 <a href="/docs/airport/best-airports-2026">2026年稳定高速翻墙机场对比推荐</a> 选购高速专线；或者直接查看 <a href="/docs/airport/mitce-review">Mitce 机场深度评测</a>，获取最低仅需 $0.60/月的极低成本防封锁 Reality 订阅。</AlertDescription>
+</Alert>
+

@@ -6,6 +6,12 @@ author: "V2RayN 中文指南"
 tags: ["故障排查", "连不上网", "超时解决", "2026"]
 ---
 
+import Alert from "@/components/ui/alert/Alert.astro";
+import AlertTitle from "@/components/ui/alert/AlertTitle.astro";
+import AlertDescription from "@/components/ui/alert/AlertDescription.astro";
+import Info from "@lucide/astro/icons/info";
+
+
 # 2026年 V2RayN 无法联网、连接超时的终极排查指南
 
 很多人在使用 V2RayN 时，经常会突然遭遇“昨天还好好的，今天电脑突然上不了外网”，或者干脆“不论怎么切换节点，全部都是连接超时（-1）”的尴尬局面。
@@ -24,6 +30,12 @@ tags: ["故障排查", "连不上网", "超时解决", "2026"]
 1. **右键全选节点**，进行 `测试服务器真连接延迟（Ctrl+O）`。如果全部报错或为 `-1`，则进入下一步。
 2. 打开手机，如果您手机上（如 v2rayNG / Clash / Shadowrocket）使用同一批节点也无法连接，那说明是**机场（服务商）在那边出故障了**（或者被墙了/跑路了）。此时您只能耐心等待机场修复，或者去他们的 Telegram 群里问问。
 3. **更新订阅**：右键点击订阅节点，选择“更新订阅”。如果甚至连订阅都无法更新，说明入口域名已经被屏蔽。
+
+<Alert variant="info">
+	<Info class="size-4" />
+	<AlertTitle>经常遭遇机场跑路或线路大面积超时？</AlertTitle>
+	<AlertDescription>这是很多廉价直连机场的常态。为了避免受跑路或大面积死线折磨，我们强烈建议您获取一个高稳定性的备用节点，或者彻底更换为一个高口碑的稳定机场。建议参考我们的 <a href="/docs/airport/best-airports-2026">2026年稳定高速翻墙机场对比推荐</a> 选购高速专线；或者直接查看 <a href="/docs/airport/mitce-review">Mitce 机场深度评测</a>，获取入门仅需 $0.60/月的极低成本防失联 Reality 订阅。</AlertDescription>
+</Alert>
 
 *只要确认不是手机端也连不上的问题，我们就可以继续往下看电脑端的问题。*
 

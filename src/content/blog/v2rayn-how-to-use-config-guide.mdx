@@ -6,6 +6,11 @@ author: "V2RayN 中文指南"
 tags: ["教程", "配置", "入门"]
 ---
 
+import Alert from "@/components/ui/alert/Alert.astro";
+import AlertTitle from "@/components/ui/alert/AlertTitle.astro";
+import AlertDescription from "@/components/ui/alert/AlertDescription.astro";
+import Info from "@lucide/astro/icons/info";
+
 # V2RayN 怎么用？从零开始的 V2RayN 节点配置与上网指南
 
 在完成了 [V2RayN 的下载与安装](/blog/v2rayn-download-install-tutorial) 后，您现在已经打开了软件的主页面。本文将指导您如何配置节点并成功翻墙。
@@ -16,6 +21,12 @@ V2RayN 只是一个工具/客户端，它本身不提供网络服务。要想科
 节点信息的常见形式有：
 - **单节点链接：** 例如以 `vmess://`、`vless://` 或 `trojan://` 开头的一长串字符。
 - **订阅链接：** 机场服务商提供的一个 URL 网址，用于批量获取多个节点。
+
+<Alert variant="info">
+  <Info class="size-4" />
+  <AlertTitle>还没有属于自己的节点或机场订阅？</AlertTitle>
+  <AlertDescription>科学上网的核心在于节点质量。在购买前，不妨先阅读我们的 <a href="/docs/airport/best-airports-2026">2026年稳定高速翻墙机场对比推荐</a>，挑选包含 IEPL 专线及高画质流媒体解锁的顶级机场；或者直接参考专注于超低预算 Reality 防封锁技术的 <a href="/docs/airport/mitce-review">Mitce 机场深度评测</a>（最低套餐仅为 $0.60/月），以极低成本开启网络自由。</AlertDescription>
+</Alert>
 
 ## 2. 导入节点信息
 

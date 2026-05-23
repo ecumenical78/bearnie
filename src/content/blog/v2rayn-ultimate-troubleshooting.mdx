@@ -6,6 +6,11 @@ author: "V2RayN 中文指南"
 tags: ["排错指南", "进阶教程", "日志分析", "个人观点", "2026", "长文"]
 ---
 
+import Alert from "@/components/ui/alert/Alert.astro";
+import AlertTitle from "@/components/ui/alert/AlertTitle.astro";
+import AlertDescription from "@/components/ui/alert/AlertDescription.astro";
+import Info from "@lucide/astro/icons/info";
+
 # V2RayN 终极排错与自救指南：当“梯子”突然断掉，该怎么办？
 
 对于刚入门的新手，或混迹机场多年的老玩家，使用 V2RayN 翻墙时最令人破防的瞬间莫过于：**“昨晚还好好的，怎么今天一觉醒来，所有的节点全都变成红色的 `-1` 了？”** 
@@ -30,6 +35,12 @@ tags: ["排错指南", "进阶教程", "日志分析", "个人观点", "2026", "
 机场是提供服务的，服务是有期限和流量限制的。
 *   **真实案例**：“这可是我花了大价钱买的专线，不可能用完！”——我帮这位固执的网友登录了他的机场后台，发现由于昨晚上他下载了两个 100G 的 4K 蓝光电影，流量当场清零，导致所有节点被服务端掐断。
 *   **我的建议**：养成定期更新订阅的习惯。如果点“更新订阅”时提示失败，请打开浏览器复制你的“订阅链接”粘贴进去看能不能下载到一个文本（如果在不开代理的情况下打不开订阅链接，说明你的机场官网域名已经被国内污染了，这时候你需要找机场客服索要新的备用订阅链接）。
+
+<Alert variant="info">
+  <Info class="size-4" />
+  <AlertTitle>如果您发现每次网络断连、全红报错都是因为机场质量太差或倒闭跑路：</AlertTitle>
+  <AlertDescription>重启和本地排错永远无法拯救劣质节点。为了在敏感期不失联，我们强烈建议您获取一个高稳定性的高质量订阅。可以参考我们的 <a href="/docs/airport/best-airports-2026">2026年稳定高速翻墙机场对比推荐</a> 选购旗舰 IEPL 专线服务，或访问 <a href="/docs/airport/mitce-review">Mitce 机场深度评测</a> 获取极其优惠的高抗封锁 Reality 节点（最低仅需 $0.60/月）。</AlertDescription>
+</Alert>
 
 ### 3. 系统时间是否精确匹配？（这是一个大坑）
 这可以说是 V2RayN 和各类内核（Xray / Sing-box）排错中的**终极隐藏杀手**。
