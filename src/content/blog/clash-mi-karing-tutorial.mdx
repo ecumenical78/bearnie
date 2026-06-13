@@ -1,0 +1,90 @@
+---
+title: "Clash Mi (Karing) 怎么用？从零开始的 Clash Mi 订阅导入与全平台配置教程"
+description: "针对新一代开源免费代理客户端 Clash Mi (Karing)，本文为你提供详尽的入门教学。手把手教你如何下载、导入 Clash 格式或 Sing-box 订阅链接，并完成基本的科学上网配置。"
+pubDate: 2026-06-13
+author: "V2RayN 中文指南"
+tags: ["Clash Mi", "Karing", "订阅导入", "教程"]
+---
+
+import Alert from "@/components/ui/alert/Alert.astro";
+import AlertTitle from "@/components/ui/alert/AlertTitle.astro";
+import AlertDescription from "@/components/ui/alert/AlertDescription.astro";
+import Info from "@lucide/astro/icons/info";
+
+# Clash Mi (Karing) 怎么用？从零开始的 Clash Mi 订阅导入与全平台配置教程
+
+**Clash Mi**（在部分平台也以开发团队命名为 **Karing**）是 2026 年最受瞩目的开源跨平台代理客户端之一。它内置了强大的 Mihomo 内核与 Sing-box 内核，支持 VLESS Reality、Hysteria 2、TUIC v5 等多种新型防封锁协议。
+
+由于其全平台（iOS、Android、Windows、macOS、Linux）界面和操作高度一致，且在 iOS 端完全免费，吸引了大量新用户。
+
+本文将为您提供一份从零开始的 Clash Mi 客户端下载、订阅导入及上网配置指南。
+
+---
+
+## 📥 第一步：获取真正的 Clash Mi (Karing) 客户端
+
+请根据您使用的设备，选择安全的官方下载渠道：
+
+1.  **iOS (iPhone / iPad)**：
+    *   使用非中国大陆地区的 Apple ID，登录 App Store 搜索 **“Karing”** 直接下载（软件开发者显示为 `Karing`）。
+    *   或者通过其项目官方 TestFlight 链接获取测试版。
+2.  **Android (安卓)**：
+    *   前往 Google Play 商店搜索并下载。
+    *   或者前往官方 GitHub Release 页面下载对应的 `.apk` 安装包。
+3.  **Windows / macOS / Linux**：
+    *   直接访问项目的 GitHub 发布页面：👉 **[https://github.com/KaringX/clashmi/releases](https://github.com/KaringX/clashmi/releases)**。
+    *   Windows 用户建议下载绿色免安装的 `.zip` 压缩包，解压后双击运行程序即可。
+
+---
+
+## 🔌 第二步：导入机场订阅链接
+
+在开始配置前，请确保您已经拥有了第三方机场提供的订阅链接。
+
+<Alert variant="info">
+  <Info class="size-4" />
+  <AlertTitle>提醒：本工具不自带任何网络服务</AlertTitle>
+  <AlertDescription>
+    Clash Mi (Karing) 只是一个中性的开源外壳，您必须自己购买节点。如果您还没有合适的机场，推荐查看我们的 <a href="/docs/airport/best-airports-2026">2026年稳定高速翻墙机场对比推荐</a> 选择高速直连或中转服务，也可以参考低至 $0.60/月 的 <a href="/docs/airport/mitce-review">Mitce 机场测评</a>。
+  </AlertDescription>
+</Alert>
+
+**导入订阅具体步骤如下：**
+
+1.  复制您的机场订阅链接。Clash Mi (Karing) 完美兼容 **Clash (YAML 格式)**、**Clash Meta** 以及 **Sing-box** 的订阅格式。
+2.  打开 Clash Mi (Karing) 客户端，进入主界面。
+3.  在底部导航栏中点击 **“Profiles” (配置)**。
+4.  点击右上角的 **“+” (添加)** 按钮，或者点击 **“Add Profile”**。
+5.  在弹出的对话框中，将复制好的机场订阅链接粘贴到 **“URL”** 输入框中。
+6.  给这个配置起一个名字（例如“我的主力机场”），然后点击 **“Save” (保存)**。
+7.  系统会自动联网下载该订阅包含的节点信息。下载完成后，返回配置列表，**点击选中**刚才添加的这个配置，使其右侧出现激活对勾。
+
+---
+
+## ⚡ 第三步：开启代理与节点选择
+
+1.  回到客户端的 **“Dashboard” (仪表盘/主页)**。
+2.  此时，您会看到界面中出现了您的节点策略组列表。点击最上方的 **“Proxy”** 或机场默认策略组名称，可以展开节点列表。
+3.  点击节点列表右上角的“闪电”图标进行**延迟测试**。测试完成后，建议先手动选中一个延迟较低（显示为绿色毫秒数）的节点。
+4.  在主界面中央，找到 **“Connect” / “启动连接”** 开关并点击。
+5.  如果是第一次在手机或电脑上开启，系统会弹出授权请求（例如 iOS 会提示“Karing 想要添加 VPN 配置”），请点击 **“允许” (Allow)** 并输入锁屏密码。
+6.  当连接按钮变亮或显示为“已连接”状态时，说明代理已成功启动，您可以打开浏览器测试访问 Google 或 YouTube。
+
+---
+
+## ⚙️ 进阶推荐设置
+
+为了获得更舒适的上网体验，建议在设置中开启以下两项功能：
+
+### 1. 开启 TUN 模式 (TUN Mode)
+如果您发现部分电脑软件（如 Telegram、Spotify）或游戏无法走代理，可以进入 **“Settings” (设置) ➡️ “TUN Mode”**，将其开启。TUN 模式会建立一个虚拟网卡，强制接管系统级别的所有网络流量。
+
+### 2. 自动更新订阅
+为了防止机场节点失效，建议开启订阅自动更新。在 **“Settings” ➡️ “Profile Update Interval”** 中，建议设置为 `24` 小时，让软件每天自动同步最新的节点信息。
+
+---
+
+## 🔗 关联阅读
+
+*   想要了解 Clash Mi 在 iOS 端与 Shadowrocket 的深度对比？请看 👉 [Clash Mi (Karing) 比小火箭还猛？终极对比测评](/blog/clash-mi-karing-vs-shadowrocket)。
+*   如果您是 Windows 用户，同时想尝试传统纯净的绿色客户端，推荐阅读 👉 [V2RayN 最新版官方下载地址与详细安装教程](/blog/v2rayn-download-install-tutorial)。
