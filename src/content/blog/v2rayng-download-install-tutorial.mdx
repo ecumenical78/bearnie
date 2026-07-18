@@ -1,0 +1,94 @@
+---
+title: "v2rayNG 安卓客户端最新版下载与订阅导入配置图文教学"
+description: "v2rayNG 怎么下载、怎么用？本文提供 v2rayNG 安卓版官方纯净下载地址、详细的机场订阅导入步骤，以及开启系统 VPN 代理的完整图文操作教程，手机科学上网新手必读。"
+pubDate: 2026-07-17
+author: "V2RayN 中文指南"
+tags: ["v2rayNG", "安卓", "订阅导入", "教程", "下载"]
+---
+
+import Alert from "@/components/ui/alert/Alert.astro";
+import AlertTitle from "@/components/ui/alert/AlertTitle.astro";
+import AlertDescription from "@/components/ui/alert/AlertDescription.astro";
+import Info from "@lucide/astro/icons/info";
+
+# v2rayNG 安卓客户端最新版下载与订阅导入配置图文教学
+
+**v2rayNG** 是目前安卓平台上最广受认可的开源代理客户端之一。它由开发者 `2dust` 维护，是 Windows 端 **V2RayN** 的安卓姐妹版，底层同样支持 Xray-core 与 Sing-box 等高性能核心。
+
+由于其原生开发、体积轻巧、极度省电且高度兼容 VLESS Reality、Hysteria 2 等新一代防封锁协议，它在 2026 年的安卓科学上网生态中依然是无数用户的首选工具。
+
+本文将为你提供从**安全下载 ➡️ 导入机场订阅 ➡️ 开启连接**的全流程图文配置教程。
+
+---
+
+## ⚠️ 安全警告：拒绝第三方野鸡下载站
+
+在开始之前，请务必牢记以下核心安全原则：
+
+**v2rayNG 唯一官方安全下载渠道是 GitHub：**
+👉 **[https://github.com/2dust/v2rayNG/releases](https://github.com/2dust/v2rayNG/releases)**
+
+任何非 GitHub 的第三方下载站（例如以"v2rayNG中文版下载"、"安卓科学上网工具下载"为关键词的百度搜索结果）提供的安装包，都存在被注入木马、恶意广告和账号窃取程序的极高风险。请始终认准 GitHub 官方 Release 页面。
+
+---
+
+## 📥 第一步：下载安装 v2rayNG
+
+1.  在你的安卓手机上，打开浏览器访问官方 GitHub Release 页面：
+    👉 **[https://github.com/2dust/v2rayNG/releases](https://github.com/2dust/v2rayNG/releases)**
+2.  在最新版本（Latest 标签）下，点击展开 **Assets（资源列表）**。
+3.  在文件列表中，找到并点击下载名为 **`v2rayNG_x.x.x_arm64-v8a.apk`** 的文件（推荐下载此版本，适配所有主流 64 位安卓机型）。
+    > 如果你的手机是较老的 32 位机型（较为少见），则选择 `armeabi-v7a` 版本。
+4.  下载完成后，打开安装包。系统可能会提示"允许安装来自未知来源的应用"，请在系统设置中为当前浏览器开启此权限，然后继续完成安装。
+
+<Alert variant="info">
+  <Info class="size-4" />
+  <AlertTitle>在使用客户端之前，你还需要一个稳定的机场订阅。</AlertTitle>
+  <AlertDescription>
+    v2rayNG 只是代理工具本身，并不包含任何免费节点或网络服务。如果你还没有机场订阅，可以参考我们的 <a href="/docs/airport/best-airports-2026">2026年稳定高速翻墙机场对比推荐</a> 选择适合自己的服务；对于预算有限的用户，<a href="/docs/airport/mitce-review">Mitce 机场</a> 低至 $0.60/月 的起步套餐是极佳的入门选择。
+  </AlertDescription>
+</Alert>
+
+---
+
+## 🔌 第二步：添加机场订阅
+
+成功安装并打开 v2rayNG 后，你会看到一个几乎空白的主界面（节点列表为空）。接下来，我们通过添加机场订阅链接来导入节点：
+
+1.  在主界面右上角，点击 **三个点（⋮）的菜单按钮**。
+2.  在弹出的下拉菜单中，选择 **"订阅设置"（Subscription Setting）**。
+3.  进入订阅管理页面后，点击右上角的 **"+"（添加）** 按钮。
+4.  在弹出的对话框中：
+    *   **备注（Remark）**：随意填写，例如"我的主力机场"。
+    *   **地址（URL）**：将你从机场复制来的订阅链接完整粘贴到此处。
+5.  点击右上角的 **保存（✓）** 图标。
+6.  返回主界面，再次点击右上角的三点菜单，选择 **"更新订阅"（Update Subscription）**。
+7.  等待几秒钟，节点列表将自动从机场服务器获取并填充所有可用节点。
+
+---
+
+## ⚡ 第三步：选择节点并开启连接
+
+1.  订阅更新成功后，主界面将展示机场提供的所有节点列表。
+2.  **（可选但推荐）测试延迟**：长按任意一个节点，在弹出的菜单中选择 **"测试全部配置（Real Delay）"**，等待测试完成，延迟数值将以绿/黄/红的颜色进行标注。
+3.  **选择节点**：点击你想要使用的节点，节点左侧将出现选中标记。一般建议选择延迟（ms）显示较低且颜色为绿色的节点。
+4.  **启动连接**：返回主界面，点击屏幕右下角的 **V 字形纸飞机图标（▷ 运行按钮）**，使其变为灰色停止按钮（三角形变为矩形）。
+5.  首次开启时，安卓系统会弹出一个 **VPN 权限请求对话框**，提示"v2rayNG 请求建立 VPN 连接"，请点击 **"好"** 或 **"允许"** 继续。
+6.  当主界面状态栏出现一把 🔑 钥匙图标时，代表连接已成功建立。打开浏览器访问 `google.com` 进行验证。
+
+---
+
+## ⚙️ 进阶配置：分流模式选择
+
+在主界面左上角，你可以看到当前的 **"路由（Routing）"** 模式切换按钮。v2rayNG 提供以下几个常用的路由模式：
+
+*   **绕过大陆与局域网（推荐）**：境外流量走代理，国内网站直连，兼顾速度与流量消耗的最佳平衡模式。
+*   **全局（Global）**：所有流量，包括国内 App，都通过代理转发。会消耗更多节点流量，且国内 App 速度会略有下降。
+*   **直连（Direct）**：关闭所有代理，等效于关闭科学上网。
+
+---
+
+## 🔗 关联阅读
+
+*   对比 v2rayNG 与功能更强大的 Clash Mi (Karing) 客户端：👉 [2026年安卓科学上网客户端 v2rayNG vs Clash Mi 深度对比](/blog/v2rayng-vs-clash-mi-android)
+*   已在 Windows 电脑上使用 V2RayN 的用户，可以参考完整的电脑端配置教程：👉 [V2RayN 官方下载地址与详细安装教程 (Windows篇)](/blog/v2rayn-download-install-tutorial)
