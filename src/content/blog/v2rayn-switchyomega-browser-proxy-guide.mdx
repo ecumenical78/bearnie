@@ -1,0 +1,104 @@
+---
+title: "不用全局代理！如何使用 SwitchyOmega 插件精确控制浏览器走 V2RayN 节点？"
+description: "嫌开启 V2RayN 系统代理影响微信或本地开发生态？本文教你如何配置 SwitchyOmega / ZeroOmega 浏览器插件，实现仅让浏览器科学上网的精确分流控制。"
+pubDate: 2026-07-23
+author: "V2RayN 中文指南"
+tags: ["SwitchyOmega", "ZeroOmega", "V2RayN", "浏览器代理", "分流设置"]
+---
+
+import Alert from "@/components/ui/alert/Alert.astro";
+import AlertTitle from "@/components/ui/alert/AlertTitle.astro";
+import AlertDescription from "@/components/ui/alert/AlertDescription.astro";
+import Info from "@lucide/astro/icons/info";
+
+# 不用全局代理！如何使用 SwitchyOmega 插件精确控制浏览器走 V2RayN 节点？
+
+在日常使用 Windows 电脑时，许多用户会遇到这样一个尴尬的场景：
+
+开启 V2RayN 的“系统代理”或“TUN 模式”后，虽然能顺利访问谷歌和 YouTube，但电脑后台运行的微信、钉钉、本地开发服务（如 `localhost:3000`）或者某些国内办公软件，却频繁出现连接超时或报错的问题。
+
+**难道就没有一种方法，能让代理“只作用于浏览器”，而让电脑上的其他软件完全不受影响吗？**
+
+答案是肯定的！通过将 V2RayN 的本地监听端口与 Chrome / Edge 浏览器的 **SwitchyOmega**（或新一代分支 **ZeroOmega**）扩展插件结合，你可以实现绝对精确的“单向浏览器代理”。
+
+---
+
+## 💡 为什么推荐使用浏览器代理扩展？
+
+1.  **零干扰**：V2RayN 无需开启“系统代理”（托盘图标保持绿色或不更改系统代理设置），不会影响微信、游戏客户端及本地开发端口。
+2.  **按需智能切换**：访问百度、淘宝时自动直连，访问 GitHub、Google 时自动走 V2RayN 节点。
+3.  **多浏览器隔离**：你可以在 Chrome 中开启代理看视频，而在 Edge 中保持纯粹的国内网络环境。
+
+---
+
+## 🛠️ 第一步：获取 V2RayN 的本地代理端口
+
+V2RayN 在启动时，会在后台静默开启两个本地监听端口：
+
+1. 打开 V2RayN 主界面，查看软件最底部的状态栏。
+2. 你会看到类似如下的信息：
+   *   `HTTP 127.0.0.1:10809`
+   *   `SOCKS5 127.0.0.1:10808`
+3. 记下这两个端口（一般情况下默认 HTTP 端口为 **`10809`**，Socks5 端口为 **`10808`**）。
+
+> ⚠️ **注意**：在此模式下，你**不需要**在 V2RayN 底部将系统代理切换为“清除系统代理”以外的状态，保持 V2RayN 后台运行即可。
+
+---
+
+## 🔌 第二步：配置 SwitchyOmega / ZeroOmega 插件
+
+安装好扩展后（如无法打开 Chrome 商店安装，请参考文末的离线安装指南），按照以下步骤配置代理情景模式：
+
+### 1. 新建代理情景模式 (Proxy Profile)
+1. 点击浏览器右侧的 **SwitchyOmega 图标** ➡️ 选择 **“选项” (Options)**。
+2. 在左侧菜单中点击 **“新建情景模式...” (New profile)**。
+3. 输入情景模式名称（例如：`V2RayN-HTTP`），类型选择 **“代理情景模式” (Proxy Profile)**，点击 **“创建”**。
+4. 在代理服务器配置表格中进行填写：
+   *   **代理协议**：选择 `HTTP`（或 `SOCKS5`）。
+   *   **代理服务器**：填入 `127.0.0.1`。
+   *   **端口**：填入 `10809`（若选 SOCKS5 则填 `10808`）。
+5. 点击左侧菜单的 **“应用选项” (Apply changes)** 保存。
+
+### 2. 配置自动切换模式 (Auto Switch)
+为了让国内网站不走代理，我们需要配置“自动切换”规则：
+
+1. 在左侧菜单中点击 **“自动切换” (Auto switch)** 模式。
+2. 在“规则列表规则”中，将结果情景模式设置为刚才创建的 `V2RayN-HTTP`。
+3. 在“规则列表格式”中选择 `AutoProxy`。
+4. 粘贴规则列表地址（如常用的 `gfwlist` 规则链接），点击 **“立即更新列表”**。
+5. 在最下方的“默认情景模式”中，选择 **“直接连接” (Direct)**。
+6. 点击 **“应用选项”** 保存。
+
+<Alert variant="info">
+  <Info class="size-4" />
+  <AlertTitle>工欲善其事，必先利其器</AlertTitle>
+  <AlertDescription>
+    完成了浏览器精细分流后，节点的质量直接决定了网页加载速度。如果您经常遇到网页卡顿，建议参考我们的 <a href="/docs/airport/best-airports-2026">2026年稳定高速翻墙机场对比推荐</a> 选择黄金 IEPL 专线；或者直接阅读高性价比的 <a href="/docs/airport/mitce-review">Mitce 机场深度评测</a>（低至 $0.60/月）获取高速直连节点。
+  </AlertDescription>
+</Alert>
+
+---
+
+## ⚡ 第三步：开启自动分流冲浪
+
+1. 点击浏览器右上角的 SwitchyOmega 图标。
+2. 在弹出菜单中，选择 **“自动切换” (Auto Switch)**。
+3. 此时，当你在浏览器中输入 `google.com` 时，插件会自动识别并将其通过 `127.0.0.1:10809` 端口交给 V2RayN 处理；而访问 `baidu.com` 时，流量将直接直连，绝不经过代理节点！
+
+---
+
+## ❓ 常见问题排查
+
+1.  **打不开 Chrome 网上应用店，无法在线安装插件？**
+    由于刚安装好的浏览器还无法上网，陷入了“打不开商店就装不了插件”的死循环。请阅读我们的下一篇避坑教程：👉 [Chrome / Edge 离线安装 SwitchyOmega / ZeroOmega 图文教学](/blog/chrome-offline-install-switchyomega-guide)（即将上线）。
+2.  **插件配置好后依然打不开网页？**
+    *   检查 V2RayN 列表中是否已经激活并选中了可用的节点（建议先按 `Ctrl + R` 测试真延迟）。
+    *   检查端口号是否填错（V2RayN 默认 HTTP 为 10809，不要混淆了 SOCKS5 的 10808）。
+
+---
+
+## 🎯 总结
+
+通过 SwitchyOmega / ZeroOmega 与 V2RayN 本地监听端口的结合，你无需开启全局系统代理，即可实现轻量、精确且无感知的浏览器科学上网。这种方案非常适合开发人员、办公族以及对网络稳定性有较高要求的用户。
+
+如果你想了解更多 V2RayN 的路由与排错技巧，欢迎参阅 👉 [V2RayN 终极故障排查与闪退自救手册](/blog/v2rayn-ultimate-troubleshooting)。
